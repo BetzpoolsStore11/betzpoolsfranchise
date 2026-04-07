@@ -1,0 +1,884 @@
+/* Betz franchise landing — scoped under .franRoot */
+
+.franRoot {
+  --fran-navy: #0a1628;
+  --fran-navy-mid: #132337;
+  --fran-slate: #1e293b;
+  --fran-gold: #c9a227;
+  --fran-gold-soft: #e8d48a;
+  --fran-ice: #e8f4fc;
+  --fran-white: #ffffff;
+  --fran-muted: #64748b;
+  --fran-max: min(1120px, 92vw);
+  font-family: var(--font-fran-sans), system-ui, sans-serif;
+  color: var(--fran-slate);
+  background: var(--fran-ice);
+  min-height: 100vh;
+}
+
+.franRoot * {
+  box-sizing: border-box;
+}
+
+.franRoot a {
+  color: inherit;
+}
+
+/* Hero sits under fixed header — no block offset, no page bg strip above hero */
+.franRoot > main {
+  margin: 0;
+  padding: 0;
+}
+
+.franReveal {
+  opacity: 0;
+  transform: translate3d(0, clamp(16px, 3vw, 28px), 0);
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--fran-reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.franRevealVisible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* —— Header (floating white bar — overlays hero from viewport top) —— */
+.franHeaderWrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  width: 100%;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+  padding-bottom: 0;
+  pointer-events: none;
+}
+
+.franHeaderWrap > * {
+  pointer-events: auto;
+}
+
+.franHeader {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  display: grid;
+  align-items: center;
+  gap: clamp(8px, 2vw, 16px);
+  padding: 14px max(14px, env(safe-area-inset-right, 0px)) 14px
+    max(14px, env(safe-area-inset-left, 0px));
+  background: #ffffff;
+  border-radius: 0;
+  box-shadow:
+    0 4px 24px rgba(15, 23, 42, 0.08),
+    0 2px 8px rgba(15, 23, 42, 0.06);
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas: "logo nav cta";
+}
+
+.franHeaderLogo {
+  grid-area: logo;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.franHeaderLogo img {
+  height: clamp(42px, 6.5vw, 50px);
+  width: auto;
+}
+
+.franHeaderNav {
+  grid-area: nav;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: clamp(6px, 1.2vw, 14px);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  min-width: 0;
+  padding: 4px 0;
+}
+
+.franHeaderNav::-webkit-scrollbar {
+  display: none;
+}
+
+.franHeaderNavLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  text-decoration: none;
+  color: #0f172a;
+  font-family: var(--font-fran-sans), system-ui, sans-serif;
+  font-size: clamp(0.7rem, 1.05vw, 0.875rem);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  padding: 6px 2px;
+  border-radius: 6px;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.franHeaderNavLink:hover {
+  color: #0096d6;
+}
+
+.franHeaderCaret {
+  display: inline-flex;
+  color: currentColor;
+  opacity: 0.75;
+}
+
+.franHeaderCaret svg {
+  width: 10px;
+  height: 10px;
+}
+
+.franHeaderCta {
+  grid-area: cta;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: #0096d6;
+  color: #ffffff !important;
+  font-family: var(--font-fran-sans), system-ui, sans-serif;
+  font-size: clamp(0.75rem, 1.1vw, 0.875rem);
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.franHeaderCta:hover {
+  background: #0080b8;
+  box-shadow: 0 4px 14px rgba(0, 150, 214, 0.35);
+}
+
+@media (max-width: 1100px) {
+  .franHeader {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "logo cta"
+      "nav nav";
+  }
+
+  .franHeaderNav {
+    justify-content: flex-start;
+    padding-top: 8px;
+    border-top: 1px solid rgba(15, 23, 42, 0.06);
+  }
+}
+
+.franBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  padding: 0.65em 1.25em;
+  font-weight: 600;
+  font-size: clamp(0.85rem, 1.4vw, 0.95rem);
+  text-decoration: none;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.franBtnPrimary {
+  background: var(--fran-gold);
+  color: var(--fran-navy);
+  box-shadow: 0 4px 14px rgba(201, 162, 39, 0.35);
+}
+
+.franBtnPrimary:hover {
+  background: var(--fran-gold-soft);
+  transform: translateY(-1px);
+}
+
+.franBtnGhost {
+  background: transparent;
+  color: var(--fran-white);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.franBtnGhost:hover {
+  border-color: var(--fran-gold-soft);
+  color: var(--fran-gold-soft);
+}
+
+.franBtnDark {
+  background: var(--fran-navy);
+  color: var(--fran-white);
+}
+
+.franBtnDark:hover {
+  background: var(--fran-navy-mid);
+}
+
+/* —— Section shell —— */
+.franSection {
+  padding: clamp(48px, 8vw, 96px) clamp(20px, 4vw, 40px);
+}
+
+.franSectionNarrow {
+  max-width: var(--fran-max);
+  margin: 0 auto;
+}
+
+.franSectionLabel {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--fran-gold);
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+
+.franSectionTitle {
+  font-family: var(--font-fran-serif), Georgia, serif;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 clamp(16px, 2vw, 24px);
+  color: var(--fran-navy);
+}
+
+.franSectionTitle em {
+  font-style: normal;
+  color: var(--fran-gold);
+}
+
+.franSectionLead {
+  font-size: clamp(1rem, 1.8vw, 1.125rem);
+  line-height: 1.65;
+  color: var(--fran-muted);
+  margin: 0;
+  max-width: 60ch;
+}
+
+/* —— Opportunity two-column —— */
+.franOpportunityGrid {
+  display: grid;
+  gap: clamp(28px, 5vw, 48px);
+  align-items: center;
+}
+
+@media (min-width: 860px) {
+  .franOpportunityGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.franOpportunityImage {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+}
+
+.franPillRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: clamp(20px, 3vw, 28px);
+}
+
+.franPill {
+  padding: 0.45em 0.9em;
+  background: var(--fran-white);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--fran-navy);
+}
+
+.franOpportunityCards {
+  display: grid;
+  gap: 16px;
+  margin-top: clamp(24px, 4vw, 32px);
+}
+
+@media (min-width: 640px) {
+  .franOpportunityCards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.franOppCard {
+  background: var(--fran-white);
+  border-radius: 10px;
+  padding: clamp(16px, 3vw, 22px);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
+}
+
+.franOppCardNum {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--fran-gold);
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.franOppCard h3 {
+  font-size: 1.05rem;
+  margin: 0 0 8px;
+  color: var(--fran-navy);
+}
+
+.franOppCard p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--fran-muted);
+}
+
+/* —— Benefits grid —— */
+.franBenefitsSection {
+  background: var(--fran-white);
+}
+
+.franBenefitsGrid {
+  display: grid;
+  gap: clamp(16px, 2.5vw, 22px);
+}
+
+@media (min-width: 640px) {
+  .franBenefitsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .franBenefitsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.franBenefitCard {
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--fran-ice);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.franBenefitCardImage {
+  position: relative;
+  aspect-ratio: 16 / 11;
+}
+
+.franBenefitCardImage img {
+  object-fit: cover;
+}
+
+.franBenefitCardBody {
+  padding: clamp(16px, 2.5vw, 22px);
+  flex: 1;
+}
+
+.franBenefitCardBody h3 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  color: var(--fran-navy);
+}
+
+.franBenefitCardBody p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--fran-muted);
+}
+
+/* —— Paths / dark two-column —— */
+.franPathsSection {
+  position: relative;
+  color: var(--fran-white);
+  overflow: hidden;
+}
+
+.franPathsBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.franPathsBg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(10, 22, 40, 0.92) 0%,
+    rgba(10, 22, 40, 0.88) 50%,
+    rgba(10, 22, 40, 0.94) 100%
+  );
+}
+
+.franPathsInner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--fran-max);
+  margin: 0 auto;
+}
+
+.franPathsGrid {
+  display: grid;
+  gap: clamp(24px, 4vw, 40px);
+}
+
+@media (min-width: 820px) {
+  .franPathsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.franPathsSection .franSectionTitle {
+  color: var(--fran-white);
+}
+
+.franPathsSection .franSectionLead {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.franPathPanel {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: clamp(20px, 3vw, 28px);
+  backdrop-filter: blur(6px);
+}
+
+.franPathPanel h3 {
+  font-family: var(--font-fran-serif), Georgia, serif;
+  font-size: 1.35rem;
+  margin: 0 0 12px;
+}
+
+.franPathPanel ul {
+  margin: 0;
+  padding-left: 1.1em;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* —— Investment —— */
+.franInvestmentGrid {
+  display: grid;
+  gap: clamp(16px, 2vw, 20px);
+  margin-top: clamp(28px, 4vw, 40px);
+}
+
+@media (min-width: 640px) {
+  .franInvestmentGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.franInvestmentCard {
+  background: var(--fran-white);
+  border-radius: 12px;
+  padding: clamp(18px, 3vw, 26px);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.06);
+}
+
+.franInvestmentCard h3 {
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+  color: var(--fran-navy);
+}
+
+.franInvestmentCard p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--fran-muted);
+}
+
+/* —— Journey steps —— */
+.franJourneyList {
+  list-style: none;
+  margin: clamp(28px, 4vw, 40px) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+.franJourneyList::before {
+  content: "";
+  position: absolute;
+  left: clamp(14px, 2vw, 18px);
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    var(--fran-gold),
+    rgba(201, 162, 39, 0.2)
+  );
+  border-radius: 2px;
+}
+
+.franJourneyItem {
+  position: relative;
+  padding: clamp(16px, 2.5vw, 22px) 0 clamp(16px, 2.5vw, 22px)
+    clamp(48px, 6vw, 56px);
+}
+
+.franJourneyBadge {
+  position: absolute;
+  left: 0;
+  top: clamp(16px, 2.5vw, 22px);
+  width: clamp(32px, 5vw, 38px);
+  height: clamp(32px, 5vw, 38px);
+  border-radius: 50%;
+  background: var(--fran-navy);
+  color: var(--fran-gold-soft);
+  font-weight: 800;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--fran-gold);
+}
+
+.franJourneyItem h3 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  color: var(--fran-navy);
+}
+
+.franJourneyItem p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--fran-muted);
+}
+
+.franJourneyFoot {
+  margin-top: clamp(20px, 3vw, 28px);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--fran-navy);
+}
+
+/* —— Quote —— */
+.franQuoteSection {
+  position: relative;
+  padding: clamp(64px, 10vw, 120px) clamp(20px, 4vw, 40px);
+  overflow: hidden;
+}
+
+.franQuoteBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.franQuoteBg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 22, 40, 0.82);
+}
+
+.franQuoteInner {
+  position: relative;
+  z-index: 1;
+  max-width: min(720px, 92vw);
+  margin: 0 auto;
+  text-align: center;
+  color: var(--fran-white);
+}
+
+.franQuoteInner blockquote {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.franQuoteInner p {
+  font-family: var(--font-fran-serif), Georgia, serif;
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
+  line-height: 1.45;
+  font-style: italic;
+  margin: 0 0 clamp(16px, 2vw, 24px);
+}
+
+.franQuoteCite {
+  font-style: normal;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fran-gold-soft);
+  font-weight: 600;
+}
+
+/* —— Waitlist form —— */
+.franWaitlistSection {
+  background: var(--fran-white);
+}
+
+.franForm {
+  margin-top: clamp(28px, 4vw, 40px);
+  display: grid;
+  gap: clamp(14px, 2vw, 18px);
+  max-width: 640px;
+}
+
+.franFormRow2 {
+  display: grid;
+  gap: clamp(14px, 2vw, 18px);
+}
+
+@media (min-width: 640px) {
+  .franFormRow2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.franField label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--fran-muted);
+  margin-bottom: 6px;
+}
+
+.franField input,
+.franField select,
+.franField textarea {
+  width: 100%;
+  padding: 0.75em 0.9em;
+  border: 1px solid rgba(15, 23, 42, 0.15);
+  border-radius: 6px;
+  font: inherit;
+  background: #fff;
+  color: var(--fran-navy);
+}
+
+.franField textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.franFormNote {
+  font-size: 0.85rem;
+  color: var(--fran-muted);
+  margin: 8px 0 0;
+}
+
+.franThankYou {
+  margin-top: 24px;
+  padding: 20px;
+  background: var(--fran-ice);
+  border-radius: 8px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  font-weight: 600;
+  color: var(--fran-navy);
+}
+
+/* —— Since 1945 badge —— */
+.franSinceBadge {
+  position: fixed;
+  z-index: 60;
+  bottom: max(16px, env(safe-area-inset-bottom, 16px));
+  left: max(16px, env(safe-area-inset-left, 16px));
+  background: var(--fran-navy);
+  color: var(--fran-white);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  pointer-events: none;
+}
+
+@media (max-width: 480px) {
+  .franSinceBadge {
+    font-size: 0.62rem;
+    padding: 8px 10px;
+  }
+}
+
+/* —— Footer (light multi-column — mirrors betzpools.com) —— */
+.franFooter {
+  background: hsl(200 45% 96%);
+  color: #1e293b;
+  padding: clamp(3rem, 6vw, 4.5rem) clamp(1.25rem, 4vw, 2.5rem) clamp(2rem, 4vw, 2.75rem);
+  border-top: 1px solid hsl(200 20% 88%);
+}
+
+.franFooterInner {
+  max-width: min(1200px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: clamp(2rem, 4vw, 2.75rem);
+}
+
+@media (min-width: 640px) {
+  .franFooterInner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .franFooterInner {
+    grid-template-columns: 1.15fr 1fr 1fr 1fr;
+    align-items: start;
+  }
+}
+
+.franFooterCol {
+  min-width: 0;
+}
+
+.franFooterLogo {
+  width: min(120px, 42vw);
+  height: auto;
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+.franFooterHeading {
+  margin: 0 0 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #0f172a;
+}
+
+.franFooterHeadOffice p,
+.franFooterPhones {
+  margin: 0 0 0.65rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #334155;
+}
+
+.franFooterHeadOffice p:last-child {
+  margin-bottom: 0;
+}
+
+.franFooter a {
+  color: #0f4c75;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.franFooter a:hover {
+  color: #0096d6;
+}
+
+.franFooterList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.franFooterList a {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.franFooterBar {
+  max-width: min(1200px, 100%);
+  margin: clamp(2.25rem, 4vw, 3rem) auto 0;
+  padding-top: clamp(1.25rem, 2.5vw, 1.75rem);
+  border-top: 1px solid hsl(200 18% 85%);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem 2rem;
+}
+
+.franFooterBarLeft {
+  flex: 1 1 16rem;
+  min-width: min(100%, 18rem);
+}
+
+.franFooterCopyright {
+  margin: 0 0 0.5rem;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: #475569;
+}
+
+.franFooterLegal {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: #475569;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+}
+
+.franFooterSep {
+  color: #94a3b8;
+  user-select: none;
+}
+
+.franFooterSocial {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 0.85rem;
+}
+
+.franFooterSocialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  color: hsl(197 100% 24%);
+  text-decoration: none !important;
+  border-radius: 50%;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.franFooterSocialLink:hover {
+  color: #0096d6;
+  background: hsl(200 40% 92%);
+}
+

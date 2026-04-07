@@ -1,0 +1,1260 @@
+/* Non-hero mock sections — structure/colors from franchise.txt (no section images). */
+
+#system,
+#what-you-get,
+#heritage,
+#brand-refresh,
+#retail-model,
+#territories,
+#ideal-partners {
+  scroll-margin-top: 7.5rem;
+}
+
+/* —— Opportunity —— */
+.betz-mock-opportunity {
+  position: relative;
+  overflow: hidden;
+  background: hsl(38 35% 93%);
+}
+
+.betz-mock-opportunity .betz-mock-band-top {
+  border-bottom: 1px solid hsl(200 15% 88% / 0.6);
+  padding: clamp(2rem, 4vw, 2.75rem) 1.5rem;
+}
+
+.betz-mock-opportunity .betz-mock-band-inner {
+  max-width: 64rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .betz-mock-opportunity .betz-mock-band-inner {
+    max-width: 70rem;
+  }
+}
+
+.betz-mock-opportunity .betz-mock-band-copy {
+  max-width: 65ch;
+  width: 100%;
+}
+
+.betz-mock-opportunity .betz-mock-label {
+  margin: 0 0 0.35rem;
+  font: 600 0.75rem/1.2 var(--font-betz-body), system-ui, sans-serif;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: hsl(187 78% 42%);
+}
+
+.betz-mock-opportunity .betz-mock-h2 {
+  margin: 0;
+  font-family: var(--font-betz-serif), Georgia, serif;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.08;
+  color: hsl(200 35% 10%);
+}
+
+.betz-mock-opportunity .betz-mock-lead {
+  max-width: 65ch;
+  margin: 0.25rem 0 0;
+  font: 400 1rem/1.65 var(--font-betz-body), system-ui, sans-serif;
+  color: hsl(200 10% 46%);
+}
+
+.betz-mock-opportunity .betz-mock-proof {
+  margin: 0.25rem 0 0;
+  max-width: 65ch;
+  font: 500 0.8125rem/1.55 var(--font-betz-body), system-ui, sans-serif;
+  letter-spacing: 0.01em;
+  color: hsl(200 30% 22% / 0.78);
+}
+
+.betz-mock-opportunity .betz-mock-proof-chips {
+  margin: 0.35rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  max-width: 65ch;
+  justify-content: center;
+}
+
+.betz-mock-opportunity .betz-mock-proof-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.95rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid hsl(200 16% 82% / 0.9);
+  background: hsl(0 0% 100% / 0.8);
+  font: 600 0.62rem/1.2 var(--font-betz-body), system-ui, sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: hsl(200 35% 16% / 0.9);
+  white-space: nowrap;
+}
+
+.betz-mock-opportunity .betz-mock-pillars {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.betz-mock-opportunity .betz-mock-pillar-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  align-items: center;
+  border-bottom: 1px solid hsl(200 15% 88% / 0.4);
+  padding: 1.35rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .betz-mock-opportunity .betz-mock-pillar-row {
+    grid-template-columns: 80px 1fr 1.5fr;
+    gap: 1.5rem;
+    padding: 1.35rem 2rem;
+  }
+}
+
+.betz-mock-opportunity .betz-mock-pillar-row:last-child {
+  border-bottom: 0;
+}
+
+.betz-mock-opportunity .betz-mock-pillar-num {
+  font-family: var(--font-betz-serif), Georgia, serif;
+  font-size: 2rem;
+  font-weight: 300;
+  color: hsl(187 78% 42% / 0.5);
+}
+
+.betz-mock-opportunity .betz-mock-pillar-h3 {
+  margin: 0;
+  font-family: var(--font-betz-serif), Georgia, serif;
+  font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: hsl(200 35% 10%);
+}
+
+.betz-mock-opportunity .betz-mock-pillar-desc {
+  margin: 0;
+  max-width: 65ch;
+  font: 400 1rem/1.65 var(--font-betz-body), system-ui, sans-serif;
+  color: hsl(200 10% 46%);
+}
+
+/* —— System —— */
+.betz-mock-system {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(175deg, hsl(200 55% 14%) 0%, hsl(200 45% 8%) 100%);
+}
+
+.betz-mock-system .betz-mock-sys-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: clamp(4rem, 8vw, 6rem) 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .betz-mock-system .betz-mock-sys-inner {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+.betz-mock-system .betz-mock-label {
+  margin: 0 0 1rem;
+  font: 600 0.75rem/1.2 var(--font-betz-body), system-ui, sans-serif;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: hsl(187 60% 62%);
+}
+
+.betz-mock-system .betz-mock-h2 {
+  margin: 0 0 3rem;
+  max-width: 42rem;
+  font-family: var(--font-betz-serif), Georgia, serif;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+.betz-mock-system .betz-mock-grid {
+  display: grid;
+  gap: 1.5rem 2.5rem;
+}
+
+@media (min-width: 640px) {
+  .betz-mock-system .betz-mock-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .betz-mock-system .betz-mock-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.betz-mock-system .betz-mock-feat {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  border-left: 2px solid hsl(187 78% 42% / 0.3);
+  padding-left: 1.25rem;
+}
+
+.betz-mock-system .betz-mock-feat-num {
+  font-family: var(--font-betz-serif), Georgia, serif;
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: hsl(187 60% 62% / 0.5);
+  flex-shrink: 0;
+}
+
+.betz-mock-system .betz-mock-feat-txt {
+  font: 400 1rem/1.65 var(--font-betz-body), system-ui, sans-serif;
+  color: hsl(0 0% 100% / 0.8);
+}
+
+.betz-mock-system .betz-mock-quote {
+  margin: 3rem 0 0;
+  max-width: min(38rem, 65ch);
+  border-left: 3px solid hsl(187 78% 48%);
+  padding-left: 1.35rem;
+  font-family: var(--font-betz-serif), Georgia, serif;
+  font-size: clamp(1.3rem, 2.2vw, 1.55rem);
+  font-weight: 600;
+  font-style: normal;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: hsl(187 58% 68%);
+}
+
+/* —— What you get —— */
+.betz-mock-wyg {
+  background: hsl(180 8% 97%);
+  /* No top padding — strip meets previous section; bottom keeps section rhythm */
+  padding-top: 0;
+  padding-bottom: clamp(5rem, 10vw, 7rem);
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.betz-mock-wyg .betz-mock-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .betz-mock-wyg .betz-mock-inner {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+.betz-mock-wyg .betz-mock-head {
+  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .betz-mock-wyg .betz-mock-head {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+.betz-mock-wyg .betz-mock-label {
+  margin: 0 0 0.75rem;
+  font: 600 0.75rem/1.2 var(--font-betz-body), system-ui, sans-serif;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: hsl(187 78% 42%);
+}
+
+.betz-mock-wyg .betz-mock-h2 {
+  margin: 0;
+  font-family: var(--font-betz-serif), Georgia, serif;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.08;
+  color: hsl(200 35% 10%);
+}
+
+/* Photo strip — same layout as franchise.txt system block (.betz-mock-strip) */
+.betz-mock-wyg .betz-mock-strip {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin: 0 0 clamp(2.5rem, 5vw, 4rem);
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .betz-mock-wyg .betz-mock-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.betz-mock-wyg .betz-mock-strip .betz-mock-strip-cell {
+  position: relative;
+  width: 100%;
+  height: clamp(17rem, 32vw, 26rem);
+  min-height: 17rem;
+  overflow: hidden;
+  background: hsl(200 20% 92%);
+}
+
+.betz-mock-wyg .betz-mock-strip .betz-mock-strip-cell img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.betz-mock-wyg .betz-mock-strip .betz-mock-strip-truck img {
+  object-position: top center;
+}
+
+.betz-mock-wyg .betz-mock-bento {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .betz-mock-wyg .betz-mock-bento {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .betz-mock-wyg .betz-mock-bento {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.betz-mock-wyg .betz-mock-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  height: 100%;
+  background: #fff;
+  border-radius: 1rem;
+  border: 1px solid hsl(200 15% 88%);
+  padding: 1.5rem 1.5rem 2rem;
+  box-shadow: 0 4px 20px -4px hsl(200 35% 10% / 0.08);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.betz-mock-wyg .betz-mock-card:hover {
+  box-shadow: 0 8px 30px -6px hsl(200 35% 10% / 0.12);
+  transform: translateY(-3px);
+}
+
+.betz-mock-wyg .betz-mock-card-deco {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 999px;
+  background: hsl(187 78% 42% / 0.05);
+  transition: transform 0.5s ease;
+  pointer-events: none;
+}
+
+.betz-mock-wyg .betz-mock-card:hover .betz-mock-card-deco {
+  transform: scale(2.5);
+}
+
+.betz-mock-wyg .betz-mock-card-body {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.betz-mock-wyg .betz-mock-card svg {
+  margin-bottom: 1.25rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  color: hsl(187 78% 42%);
+}
+
+.betz-mock-wyg .betz-mock-card h3 {
+  margin: 0 0 0.5rem;
+  font: 600 1.125rem/1.3 var(--font-betz-body), system-ui, sans-serif;
+  color: hsl(200 35% 10%);
+}
+
+.betz-mock-wyg .betz-mock-card p {
+  margin: 0;
+  font: 400 1rem/1.65 var(--font-betz-body), system-ui, sans-serif;
+  color: hsl(200 10% 46%);
+}
+
+/* —— Heritage —— */
+.betz-mock-heritage {
+  --betz-heritage-navy-deep: hsl(216, 70%, 12%);
+  --betz-heritage-navy: hsl(216, 60%, 20%);
+  --betz-heritage-text: rgba(255, 255, 255, 0.98);
+  --betz-heritage-muted: rgba(200, 210, 220, 0.85);
+  --betz-heritage-btn: hsl(187 78% 42%);
+  --betz-heritage-btn-hover: hsl(197 100% 22%);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.betz-mock-heritage .betz-mock-heritage-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.betz-mock-heritage .betz-mock-heritage-bg--solid {
+  background: var(--betz-heritage-navy-deep);
+  z-index: 0;
+}
+
+.betz-mock-heritage .betz-mock-heritage-bg--gradient {
+  z-index: 1;
+  background: linear-gradient(to bottom, var(--betz-heritage-navy-deep), var(--betz-heritage-navy));
+}
+
+.betz-mock-heritage .betz-mock-heritage-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 4rem 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .betz-mock-heritage .betz-mock-heritage-inner {
+    padding: 5rem 3rem;
+  }
+}
+
+.betz-mock-heritage .betz-mock-heritage-brand {
+  margin: 1.5rem 0 0;
+  text-align: center;
+  font-family: var(--font-betz-serif), Georgia, serif;
+  font-weight: 300;
+  font-size: clamp(2.25rem, 4vw, 3.75rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--betz-heritage-text);
+  line-height: 1.15;
+}
+
+.betz-mock-heritage .betz-mock-heritage-est {
+  margin: 1rem 0 0;
+  text-align: center;
+  font: 600 0.6875rem/1.2 var(--font-betz-body), system-ui, sans-serif;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--betz-heritage-muted);
+}
+
+.betz-mock-heritage .betz-mock-heritage-subtitle {
+  margin: 1.25rem 0 0;
+  text-align: center;
+  font-family: var(--font-betz-serif), Georgia, serif;
+  font-size: clamp(1.375rem, 2vw, 1.625rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.25;
+}
+
+.betz-mock-heritage .betz-mock-heritage-body {
+  margin: 1.5rem auto 0;
+  max-width: 65ch;
+  text-align: center;
+  font: 400 1rem/1.65 var(--font-betz-body), system-ui, sans-serif;
+  color: rgba(200, 210, 220, 0.8);
+}
+
+.betz-mock-heritage .betz-mock-heritage-circles {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2rem 2.5rem;
+}
+
+.betz-mock-heritage .betz-mock-heritage-circle-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+  max-width: 11rem;
+}
+
+.betz-mock-heritage .betz-mock-heritage-circle-caption {
+  margin: 0;
+  text-align: center;
+  font: 600 0.75rem/1.35 var(--font-betz-body), system-ui, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(200, 210, 220, 0.92);
+}
+
+@media (min-width: 768px) {
+  .betz-mock-heritage .betz-mock-heritage-circle-caption {
+    font-size: 0.8125rem;
+  }
+}
+
+.betz-mock-heritage .betz-mock-heritage-circle {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.betz-mock-heritage .betz-mock-heritage-circle img {
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (min-width: 768px) {
+  .betz-mock-heritage .betz-mock-heritage-circle {
+    width: 190px;
+    height: 190px;
+  }
+}
+
+.betz-mock-heritage .betz-mock-heritage-cta {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.betz-mock-heritage .betz-mock-heritage-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem;
+  background: var(--betz-heritage-btn);
+  color: #fff;
+  font: 600 0.72rem/1.2 var(--font-betz-body), system-ui, sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  max-width: 100%;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.betz-mock-heritage .betz-mock-heritage-btn:hover {
+  background: var(--betz-heritage-btn-hover);
+  color: #fff;
+  box-shadow: 0 8px 24px -6px hsl(197 100% 22% / 0.45);
+}
+
+.betz-mock-heritage .betz-mock-heritage-cta-note {
+  margin: 0.5rem 0 0;
+  text-align: center;
+  font: 600 0.6875rem/1.2 var(--font-betz-body), system-ui, sans-serif;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(200, 210, 220, 0.7);
+}
+
+/* —— Brand refresh —— */
+.betz-mock-brand {
+  position: relative;
+  overflow: hidden;
+  background: hsl(180 8% 97%);
+}
+
+.betz-mock-brand .betz-mock-brand-grid {
+  display: grid;
+  min-height: 28rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px) {
+  .betz-mock-brand .betz-mock-brand-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.betz-mock-brand .betz-mock-brand-media {
+  position: relative;
+  height: 18rem;
+  min-height: 18rem;
+  background: hsl(200 18% 88%);
+}
+
+@media (min-width: 1024px) {
+  .betz-mock-brand .betz-mock-brand-media {
+    height: auto;
+    min-height: 28rem;
+  }
+}
+
+.betz-mock-brand .betz-mock-brand-copy {
+  display: flex;
+  align-items: center;
+  padding: 3.5rem 2rem;
+}
+
+@media (min-width: 1024px) {
+  .betz-mock-brand .betz-mock-brand-copy {
+    padding: 5rem 2.5rem 5rem 4rem;
+  }
+}
+
+.betz-mock-brand .betz-mock-label {
+  margin: 0 0 1rem;
+  font: 600 0.75rem/1.2 var(--font-betz-body), system-ui, sans-serif;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: hsl(187 78% 42%);
+}
+
+.betz-mock-brand .betz-mock-h2 {
+  margin: 0;
+  font-family: var(--font-betz-serif), Georgia, serif;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: hsl(200 35% 10%);
+}
+
+.betz-mock-brand ul {
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.betz-mock-brand li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.betz-mock-brand .betz-mock-check {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 999px;
+  background: hsl(187 78% 42% / 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.betz-mock-brand .betz-mock-check svg {
+  width: 0.875rem;
+  height: 0.875rem;
+  color: hsl(187 78% 42%);
+}
+
+.betz-mock-brand li span:last-child {
+  font: 500 1rem/1.4 var(--font-betz-body), system-ui, sans-serif;
+  color: hsl(200 35% 10%);
+}
+
+/* —— Retail operating model —— */
+.betz-mock-retail {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(175deg, hsl(200 55% 14%) 0%, hsl(200 45% 8%) 100%);
+}
+
+.betz-mock-retail::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top left, hsl(187 78% 42% / 0.08), transparent 50%);
+  pointer-events: none;
+}
+
+.betz-mock-retail .betz-mock-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: clamp(5rem, 10vw, 7rem) 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .betz-mock-retail .betz-mock-inner {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+.betz-mock-retail .betz-mock-label {
+  margin: 0 0 1rem;
+  font: 600 0.75rem/1.2 var(--font-betz-body), system-ui, sans-serif;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: hsl(187 60% 62%);
+}
+
+.betz-mock-retail .betz-mock-h2 {
+  margin: 0 0 4rem;
+  max-width: 42rem;
+  font-family: var(--font-betz-serif), Georgia, serif;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.08;
+  color: #fff;
+}
+
+.betz-mock-retail .betz-mock-stack > div {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-top: 1px solid hsl(0 0% 100% / 0.1);
+  padding: 2.5rem 0;
+}
+
+.betz-mock-retail .betz-mock-stack > div:last-child {
+  border-bottom: 1px solid hsl(0 0% 100% / 0.1);
+}
+
+@media (min-width: 768px) {
+  .betz-mock-retail .betz-mock-stack > div {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 3rem;
+  }
+}
+
+.betz-mock-retail .betz-mock-step {
+  font-family: var(--font-betz-serif), Georgia, serif;
+  font-size: clamp(3.5rem, 8vw, 4.5rem);
+  font-weight: 300;
+  line-height: 1;
+  color: hsl(187 78% 42% / 0.25);
+}
+
+@media (min-width: 768px) {
+  .betz-mock-retail .betz-mock-step {
+    min-width: 7.5rem;
+  }
+}
+
+.betz-mock-retail .betz-mock-step-body h3 {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-betz-serif), Georgia, serif;
+  font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.betz-mock-retail .betz-mock-step-body p {
+  margin: 0;
+  max-width: 65ch;
+  font: 400 1rem/1.65 var(--font-betz-body), system-ui, sans-serif;
+  color: hsl(0 0% 100% / 0.65);
+}
+
+/* —— Lifestyle band — gradient over photo (franchise.txt mock) —— */
+.betz-mock-life {
+  --betz-mock-life-bg: none;
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(20rem, 42vw, 34rem);
+  padding: clamp(1.5rem, 3vw, 2.25rem) 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-image:
+    linear-gradient(
+      180deg,
+      hsl(200 45% 6% / 0.62) 0%,
+      hsl(200 45% 8% / 0.38) 28%,
+      hsl(200 45% 8% / 0.26) 42%,
+      hsl(200 45% 8% / 0.42) 100%
+    ),
+    var(--betz-mock-life-bg);
+  background-size: cover, cover;
+  background-repeat: no-repeat, no-repeat;
+  background-position: center center, center center;
+  border-top: 1px solid hsl(200 40% 22% / 0.35);
+  border-bottom: 1px solid hsl(200 40% 22% / 0.35);
+}
+
+.betz-mock-life .betz-mock-life-lead {
+  margin: 0;
+  max-width: min(65ch, 92vw);
+  text-align: center;
+  font-family: var(--font-betz-serif), Georgia, serif;
+  font-size: clamp(1.65rem, 4.2vw, 2.85rem);
+  font-weight: 600;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #fff;
+  text-shadow:
+    0 1px 2px hsl(200 50% 4% / 0.85),
+    0 2px 16px hsl(200 45% 6% / 0.75),
+    0 0 40px hsl(200 45% 8% / 0.5);
+  padding: 0 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Reference reserves grid; hidden in mock (franchise.txt) */
+.betz-mock-life .betz-mock-life-grid {
+  display: none;
+}
+
+/* —— Territories —— */
+.betz-mock-terr {
+  background: hsl(180 8% 97%);
+  padding: clamp(5rem, 10vw, 7rem) 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .betz-mock-terr {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+.betz-mock-terr .betz-mock-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  gap: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .betz-mock-terr .betz-mock-inner {
+    grid-template-columns: 1fr 1.5fr;
+    align-items: center;
+  }
+}
+
+.betz-mock-terr .betz-mock-label {
+  margin: 0 0 1rem;
+  font: 600 0.75rem/1.2 var(--font-betz-body), system-ui, sans-serif;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: hsl(187 78% 42%);
+}
+
+.betz-mock-terr .betz-mock-h2 {
+  margin: 0;
+  font-family: var(--font-betz-serif), Georgia, serif;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.08;
+  color: hsl(200 35% 10%);
+}
+
+.betz-mock-terr .betz-mock-sub {
+  margin: 1rem 0 0;
+  max-width: 65ch;
+  font: 400 1rem/1.65 var(--font-betz-body), system-ui, sans-serif;
+  color: hsl(200 10% 46%);
+}
+
+.betz-mock-terr .betz-mock-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.betz-mock-terr .betz-mock-pill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid hsl(200 15% 88%);
+  background: #fff;
+  padding: 0.75rem 1.5rem;
+  font: 600 0.875rem/1 var(--font-betz-body), system-ui, sans-serif;
+  color: hsl(200 35% 10%);
+  box-shadow: 0 1px 2px hsl(200 35% 10% / 0.06);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.betz-mock-terr .betz-mock-pill:hover {
+  border-color: hsl(187 78% 42% / 0.4);
+  box-shadow: 0 4px 12px hsl(200 35% 10% / 0.08);
+}
+
+/* —— Ideal partners —— */
+.betz-mock-who {
+  background: hsl(38 35% 93%);
+  padding: clamp(5rem, 10vw, 7rem) 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .betz-mock-who {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+.betz-mock-who .betz-mock-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.betz-mock-who .betz-mock-label {
+  margin: 0 0 1rem;
+  font: 600 0.75rem/1.2 var(--font-betz-body), system-ui, sans-serif;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: hsl(187 78% 42%);
+  text-align: center;
+}
+
+.betz-mock-who .betz-mock-h2 {
+  margin: 0;
+  font-family: var(--font-betz-serif), Georgia, serif;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.08;
+  color: hsl(200 35% 10%);
+  text-align: center;
+}
+
+.betz-mock-who .betz-mock-cols {
+  margin: 3.5rem auto 0;
+  display: grid;
+  row-gap: clamp(2.5rem, 5vw, 4rem);
+  max-width: min(72rem, 100%);
+}
+
+@media (min-width: 768px) {
+  .betz-mock-who .betz-mock-cols {
+    grid-template-columns: 1fr 1fr;
+    column-gap: clamp(3.5rem, 10vw, 7.5rem);
+    justify-items: start;
+  }
+
+  .betz-mock-who .betz-mock-cols h3 {
+    text-align: left;
+  }
+}
+
+.betz-mock-who .betz-mock-cols > div {
+  max-width: 26rem;
+  width: 100%;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+@media (max-width: 767px) {
+  .betz-mock-who .betz-mock-cols > div {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.betz-mock-who .betz-mock-cols h3 {
+  margin: 0 0 2rem;
+  font: 700 0.75rem/1.2 var(--font-betz-body), system-ui, sans-serif;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: hsl(197 100% 22%);
+  text-align: center;
+}
+
+.betz-mock-who .betz-mock-row {
+  display: flex;
+  gap: 1.25rem;
+  border-top: 1px solid hsl(200 15% 88% / 0.6);
+  padding: 1.25rem 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.betz-mock-who .betz-mock-row-num {
+  font-family: var(--font-betz-serif), Georgia, serif;
+  font-size: 1.125rem;
+  font-weight: 300;
+  color: hsl(187 78% 42% / 0.4);
+  flex-shrink: 0;
+}
+
+.betz-mock-who .betz-mock-row p {
+  margin: 0;
+  font: 400 1rem/1.65 var(--font-betz-body), system-ui, sans-serif;
+  color: hsl(200 35% 10%);
+}
+
+.betz-mock-who .betz-mock-who-veterans-wrap {
+  margin: 2.75rem auto 0;
+  max-width: min(42rem, 100%);
+  padding-top: 1.5rem;
+  border-top: 1px solid hsl(200 15% 88% / 0.65);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem 1.25rem;
+  flex-wrap: wrap;
+}
+
+.betz-mock-who .betz-mock-who-flag {
+  flex-shrink: 0;
+  width: clamp(52px, 14vw, 72px) !important;
+  height: auto !important;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px hsl(200 35% 10% / 0.1);
+}
+
+.betz-mock-who .betz-mock-who-veterans {
+  margin: 0;
+  flex: 1 1 16rem;
+  min-width: min(100%, 14rem);
+  text-align: left;
+  font: 500 1rem/1.6 var(--font-betz-body), system-ui, sans-serif;
+  color: hsl(200 35% 10%);
+}
+
+@media (max-width: 520px) {
+  .betz-mock-who .betz-mock-who-veterans-wrap {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .betz-mock-who .betz-mock-who-veterans {
+    text-align: center;
+  }
+}
+
+/* —— Apply / waitlist (centered dark panel, reference layout) —— */
+.betz-mock-apply {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, hsl(205 48% 10%) 0%, #0a1f2c 35%, #0a1f2c 100%);
+  padding: clamp(4.5rem, 9vw, 6.5rem) clamp(1.25rem, 4vw, 2rem);
+}
+
+.betz-mock-apply::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, hsl(187 50% 18% / 0.12), transparent 55%);
+  pointer-events: none;
+}
+
+.betz-mock-apply .betz-mock-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.betz-mock-apply .betz-mock-head {
+  text-align: center;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.betz-mock-apply .betz-mock-label {
+  margin: 0 0 0.875rem;
+  font: 600 0.6875rem/1.2 var(--font-betz-body), system-ui, sans-serif;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: hsl(187 70% 58%);
+}
+
+.betz-mock-apply .betz-mock-h2 {
+  margin: 0;
+  font-family: var(--font-betz-serif), Georgia, serif;
+  font-size: clamp(1.75rem, 4.5vw, 2.35rem);
+  font-weight: 600;
+  line-height: 1.12;
+  color: #fff;
+}
+
+.betz-mock-apply .betz-mock-intro {
+  margin: 1rem auto 0;
+  max-width: 34rem;
+  font: 400 0.9375rem/1.65 var(--font-betz-body), system-ui, sans-serif;
+  color: hsl(0 0% 100% / 0.82);
+}
+
+/* Single centered grid: 2 cols ≥640px; trade, vision, submit, footnote span full width */
+.betz-mock-apply .betz-mock-form-grid {
+  margin-top: clamp(2.25rem, 4vw, 3rem);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.125rem 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .betz-mock-apply .betz-mock-form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .betz-mock-apply .betz-mock-field-span {
+    grid-column: 1 / -1;
+  }
+}
+
+.betz-mock-apply .betz-mock-field {
+  min-width: 0;
+}
+
+.betz-mock-apply .betz-mock-field > label {
+  display: block;
+  margin-bottom: 0.45rem;
+  font: 600 0.6875rem/1.2 var(--font-betz-body), system-ui, sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: hsl(210 25% 78% / 0.88);
+}
+
+.betz-mock-apply .betz-mock-field input,
+.betz-mock-apply .betz-mock-field textarea {
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid hsl(205 28% 32% / 0.65);
+  background: hsl(205 42% 13%);
+  padding: 0.7rem 0.9rem;
+  font: 400 0.9375rem/1.45 var(--font-betz-body), system-ui, sans-serif;
+  color: #f1f5f9;
+  box-sizing: border-box;
+}
+
+.betz-mock-apply .betz-mock-select-wrap select {
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid hsl(205 28% 32% / 0.65);
+  background-color: hsl(205 42% 13%);
+  padding: 0.7rem 2.5rem 0.7rem 0.9rem;
+  font: 400 0.9375rem/1.45 var(--font-betz-body), system-ui, sans-serif;
+  color: #f1f5f9;
+  box-sizing: border-box;
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' viewBox='0 0 12 8'%3E%3Cpath stroke='%2394a3b8' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m1 1.5 5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+  background-size: 12px 8px;
+}
+
+.betz-mock-apply .betz-mock-field input::placeholder,
+.betz-mock-apply .betz-mock-field textarea::placeholder {
+  color: hsl(210 15% 55%);
+}
+
+.betz-mock-apply .betz-mock-select-wrap {
+  position: relative;
+}
+
+.betz-mock-apply select option,
+.betz-mock-apply select optgroup {
+  background-color: hsl(180 8% 97%) !important;
+  color: hsl(200 35% 10%) !important;
+}
+
+.betz-mock-apply .betz-mock-field input:focus,
+.betz-mock-apply .betz-mock-field textarea:focus,
+.betz-mock-apply .betz-mock-select-wrap select:focus {
+  background-color: hsl(205 42% 13%);
+  outline: none;
+  border-color: hsl(187 55% 45% / 0.55);
+  box-shadow: 0 0 0 2px hsl(187 78% 42% / 0.25);
+}
+
+.betz-mock-apply .betz-mock-field textarea {
+  resize: none;
+  min-height: 5.25rem;
+  vertical-align: top;
+}
+
+.betz-mock-apply .betz-mock-submit {
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  font: 600 0.75rem/1 var(--font-betz-body), system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  background: hsl(187 78% 42%);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 0.25rem;
+}
+
+.betz-mock-apply .betz-mock-submit:hover {
+  background: hsl(197 100% 22%);
+  box-shadow: 0 12px 28px -8px hsl(197 100% 22% / 0.4);
+}
+
+.betz-mock-apply .betz-mock-footnote {
+  margin: 0;
+  text-align: center;
+  font: 400 0.75rem/1.5 var(--font-betz-body), system-ui, sans-serif;
+  color: hsl(210 20% 65% / 0.85);
+}
+
+.betz-mock-apply .betz-mock-success {
+  margin-top: 3rem;
+  border-radius: 1rem;
+  border: 1px solid hsl(187 78% 42% / 0.2);
+  background: hsl(0 0% 100% / 0.05);
+  backdrop-filter: blur(8px);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.betz-mock-apply .betz-mock-success h3 {
+  margin: 0;
+  font-family: var(--font-betz-serif), Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.betz-mock-apply .betz-mock-success p {
+  margin: 0.75rem 0 0;
+  font: 400 1rem/1.65 var(--font-betz-body), system-ui, sans-serif;
+  color: hsl(0 0% 100% / 0.6);
+}
