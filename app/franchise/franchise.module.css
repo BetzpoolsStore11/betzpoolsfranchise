@@ -707,25 +707,31 @@
 .franSinceBadge {
   position: fixed;
   z-index: 60;
-  bottom: max(16px, env(safe-area-inset-bottom, 16px));
-  left: max(16px, env(safe-area-inset-left, 16px));
-  background: var(--fran-navy);
+  bottom: max(12px, env(safe-area-inset-bottom, 12px));
+  left: max(12px, env(safe-area-inset-left, 12px));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  background: linear-gradient(180deg, #0b8dc7 0%, #0773a8 100%);
   color: var(--fran-white);
-  padding: 10px 14px;
-  border-radius: 8px;
-  font-size: 0.7rem;
-  font-weight: 700;
+  padding: 0 12px;
+  border-radius: 999px;
+  font: 700 11px/1 var(--font-fran-sans), system-ui, sans-serif;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(201, 162, 39, 0.35);
+  box-shadow: 0 10px 24px rgba(3, 19, 41, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   pointer-events: none;
+  user-select: none;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .franSinceBadge {
-    font-size: 0.62rem;
-    padding: 8px 10px;
+    min-height: 30px;
+    padding: 0 10px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
   }
 }
 
