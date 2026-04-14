@@ -18,14 +18,16 @@ const steps = [
   },
 ] as const;
 
-export function RetailOperatingModel() {
+export function RetailOperatingModel({ hideLabel = false }: { hideLabel?: boolean } = {}) {
   return (
     <section id="retail-model" className="betz-mock-retail">
       <div className="betz-mock-inner">
-        <Reveal>
-          <p className="betz-mock-label">Operating Model</p>
-        </Reveal>
-        <Reveal delayMs={45}>
+        {!hideLabel && (
+          <Reveal>
+            <p className="betz-mock-label">Operating Model</p>
+          </Reveal>
+        )}
+        <Reveal delayMs={hideLabel ? 0 : 45}>
           <h2 className="betz-mock-h2">A Storefront That Powers Recurring Revenue</h2>
         </Reveal>
         <Reveal delayMs={80}>

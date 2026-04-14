@@ -15,7 +15,7 @@ const listItems = [
   "Scalable formats for any market",
 ] as const;
 
-export function BrandRefreshSection() {
+export function BrandRefreshSection({ hideLabel = false }: { hideLabel?: boolean } = {}) {
   return (
     <section id="brand-refresh" className="betz-mock-brand">
       <div className="betz-mock-brand-grid">
@@ -30,10 +30,12 @@ export function BrandRefreshSection() {
         </div>
         <div className="betz-mock-brand-copy">
           <div>
-            <Reveal>
-              <p className="betz-mock-label">Brand Refresh</p>
-            </Reveal>
-            <Reveal delayMs={45}>
+            {!hideLabel && (
+              <Reveal>
+                <p className="betz-mock-label">Brand Refresh</p>
+              </Reveal>
+            )}
+            <Reveal delayMs={hideLabel ? 0 : 45}>
               <h2 className="betz-mock-h2">
                 A Fully Built
                 <br />
