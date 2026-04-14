@@ -61,18 +61,10 @@ export function FranchiseHeader({ activeSection }: { activeSection: string }) {
         </nav>
         <div className={styles.franHeaderCtaGroup}>
           <a
-            href={franchiseHeaderServiceUrl}
-            className={styles.franHeaderCta}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Request Service
-          </a>
-          <a
             href="#apply"
             className={styles.franHeaderCta}
           >
-            Apply
+            Apply to Franchise
           </a>
         </div>
       </header>
