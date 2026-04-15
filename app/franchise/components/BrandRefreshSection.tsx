@@ -12,7 +12,7 @@ const listItems = [
   "Retail-ready store formats",
   "Accessories + chemicals",
   "Contractors + DIY",
-  "Scalable formats for any market",
+  "Scalable formats for any Service Capacity Area",
 ] as const;
 
 export function BrandRefreshSection({ hideLabel = false }: { hideLabel?: boolean } = {}) {

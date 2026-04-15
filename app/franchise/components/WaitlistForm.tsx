@@ -123,7 +123,7 @@ export function WaitlistForm() {
               />
             </div>
             <div className="betz-mock-field">
-              <label htmlFor="fran-territory">Location / Territory</label>
+              <label htmlFor="fran-territory">Location / Designated Serve Area</label>
               <input
                 id="fran-territory"
                 name="territory"

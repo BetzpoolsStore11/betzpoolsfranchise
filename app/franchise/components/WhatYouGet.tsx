@@ -41,7 +41,7 @@ const items = [
   },
   {
     title: "Retail Store Design",
-    body: "Turnkey layouts with flexible formats for any market.",
+    body: "Turnkey layouts with flexible formats for any Service Capacity Area.",
     svg: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
         <path d="M3 10h18V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v4z" />

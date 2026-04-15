@@ -28,15 +28,15 @@ export function Territories() {
           </Reveal>
           <Reveal delayMs={45}>
             <h2 className="betz-mock-h2">
-              Priority Territories
+              Service Zones
               <br />
               Now Forming
             </h2>
           </Reveal>
           <Reveal delayMs={90}>
             <p className="betz-mock-sub">
-              Select your preferred Ontario market. Early applicants receive priority territory
-              selection.
+              Select your preferred Ontario Designated Serve Area. Early applicants receive
+              priority Service Capacity Area selection.
             </p>
           </Reveal>
         </div>

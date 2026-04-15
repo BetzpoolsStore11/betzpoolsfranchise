@@ -17,7 +17,7 @@ export const franchiseHeaderNavItems: readonly FranchiseHeaderNavItem[] = [
   { label: "What You Get", href: "#what-you-get", hasCaret: false },
   { label: "Betz Story", href: "#heritage", hasCaret: false },
   { label: "Model", href: "#the-model", hasCaret: false },
-  { label: "Territories", href: "#territories", hasCaret: false },
+  { label: "Service Zones", href: "#territories", hasCaret: false },
   { label: "Ideal Partner", href: "#ideal-partners", hasCaret: false },
 ] as const;
 

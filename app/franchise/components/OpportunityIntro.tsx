@@ -24,14 +24,14 @@ export function OpportunityIntro() {
             <Reveal delayMs={80}>
               <div className="betz-mock-proof-chips">
                 <span className="betz-mock-proof-chip">80+ Years Legacy</span>
-                <span className="betz-mock-proof-chip">Ontario Territories</span>
+                <span className="betz-mock-proof-chip">Ontario Service Zones</span>
                 <span className="betz-mock-proof-chip">Retail + Service Model</span>
               </div>
             </Reveal>
             <Reveal delayMs={90}>
               <p className="betz-mock-lead">
-                Launch a protected territory with a model designed for recurring service revenue,
-                retail margin, and long-term customer retention.
+                Launch a protected Designated Serve Area with a model designed for recurring
+                service revenue, retail margin, and long-term customer retention.
               </p>
             </Reveal>
           </div>
@@ -42,8 +42,8 @@ export function OpportunityIntro() {
           <span className="betz-mock-pillar-num">01</span>
           <h3 className="betz-mock-pillar-h3">Retail Supply</h3>
           <p className="betz-mock-pillar-desc">
-            Branded storefront with full product lines — chemicals, parts, accessories, and seasonal
-            essentials.
+            Branded storefront with full product lines, chemicals, parts, accessories, and
+            seasonal essentials.
           </p>
         </div>
         <div className="betz-mock-pillar-row">
@@ -57,8 +57,8 @@ export function OpportunityIntro() {
           <span className="betz-mock-pillar-num">03</span>
           <h3 className="betz-mock-pillar-h3">Both Combined</h3>
           <p className="betz-mock-pillar-desc">
-            Maximum market coverage with full operational support — retail credibility plus service
-            density.
+            Maximum Service Capacity Area coverage with full operational support, retail
+            credibility plus service density.
           </p>
         </div>
       </div>

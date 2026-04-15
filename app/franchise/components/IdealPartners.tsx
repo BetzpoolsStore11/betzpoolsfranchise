@@ -12,9 +12,9 @@ const youAre = [
 
 const youWant = [
   "A proven system — not a startup gamble",
-  "Protected territory with recurring revenue",
+  "Protected Designated Serve Area with recurring revenue",
   "Operational support from day one",
-  "Premium brand recognition in your market",
+  "Premium brand recognition across your Service Capacity Area",
   "Work-life balance with scalable operations",
 ] as const;
 
