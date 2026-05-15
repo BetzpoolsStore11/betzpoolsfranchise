@@ -2,8 +2,7 @@
 
 import { FormEvent, useState } from "react";
 
-const FORMSPREE_ENDPOINT =
-  process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT ?? "https://formspree.io/f/xnjowvew";
+const waitlistApiRoute = "/api/waitlist";
 
 const initial = {
   name: "",
@@ -16,20 +15,73 @@ const initial = {
   vision: "",
 };
 
+type WaitlistFormValues = typeof initial;
+
+/**
+ * Purpose: Validates whether a submitted email address has a usable basic format.
+ * Parameters: email - current email field value.
+ */
+function isValidEmailAddress(email: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+}
+
+/**
+ * Purpose: Validates the required waitlist fields before submitting to the local API.
+ * Parameters: values - current waitlist form state.
+ */
+function getValidationMessage(values: WaitlistFormValues): string {
+  const requiredValues = [
+    values.name,
+    values.email,
+    values.phone,
+    values.territory,
+    values.opportunity,
+    values.investment,
+    values.trade,
+    values.vision,
+  ];
+
+  if (requiredValues.some((value) => !value.trim())) {
+    return "Please fill in all required fields.";
+  }
+
+  if (!isValidEmailAddress(values.email)) {
+    return "Please provide a valid email address.";
+  }
+
+  return "";
+}
+
+/**
+ * Purpose: Renders and submits the franchise waitlist application form.
+ * Parameters: None.
+ */
 export function WaitlistForm() {
   const [values, setValues] = useState(initial);
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
+  /**
+   * Purpose: Submits the waitlist form to the local server API route.
+   * Parameters: e - form submit event.
+   */
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
     if (isSubmitting) return;
+
+    const validationMessage = getValidationMessage(values);
+
+    if (validationMessage) {
+      setErrorMessage(validationMessage);
+      return;
+    }
+
     setErrorMessage("");
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
+      const response = await fetch(waitlistApiRoute, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -39,11 +91,8 @@ export function WaitlistForm() {
       });
 
       if (!response.ok) {
-        const payload = (await response.json().catch(() => null)) as
-          | { error?: string; errors?: { message?: string }[] }
-          | null;
-        const providerError = payload?.errors?.[0]?.message ?? payload?.error;
-        setErrorMessage(providerError ?? "Unable to submit right now. Please try again.");
+        const payload = (await response.json().catch(() => null)) as { error?: string } | null;
+        setErrorMessage(payload?.error ?? "Unable to submit right now. Please try again.");
         return;
       }
 
@@ -75,7 +124,7 @@ export function WaitlistForm() {
         ) : (
           <form
             className="betz-mock-form-grid"
-            action={FORMSPREE_ENDPOINT}
+            action={waitlistApiRoute}
             method="POST"
             onSubmit={onSubmit}
             noValidate
