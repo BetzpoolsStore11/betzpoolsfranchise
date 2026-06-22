@@ -330,6 +330,19 @@
   object-position: top center;
 }
 
+@media (max-width: 767px) {
+  .betz-mock-wyg .betz-mock-strip .betz-mock-strip-truck {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 1.65 / 1;
+  }
+
+  .betz-mock-wyg .betz-mock-strip .betz-mock-strip-truck img {
+    object-fit: cover;
+    object-position: bottom center;
+  }
+}
+
 .betz-mock-wyg .betz-mock-bento {
   display: grid;
   align-items: start;
@@ -434,6 +447,17 @@
   .betz-mock-wyg .betz-mock-card p {
     font-size: 0.9375rem;
     line-height: 1.55;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1180px) and (orientation: portrait) {
+  .betz-mock-wyg .betz-mock-strip .betz-mock-strip-cell {
+    height: clamp(20rem, 33vw, 22rem);
+    min-height: 20rem;
+  }
+
+  .betz-mock-wyg .betz-mock-strip .betz-mock-strip-truck img {
+    object-position: bottom center;
   }
 }
 
