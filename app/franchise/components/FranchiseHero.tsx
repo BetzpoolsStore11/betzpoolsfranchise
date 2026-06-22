@@ -1,10 +1,10 @@
 import type { CSSProperties } from "react";
-import heroBg from "../../../assets/hero-bg.webp";
+import heroBg from "../../../assets/the-hero-bg-image.png";
 import "../betz-mock-hero.css";
 
 /**
  * FranchiseHero renders the full-viewport mock hero from franchise.txt (betz-mock-*).
- * Background uses local hero-bg.webp via CSS variable --betz-mock-hero-bg.
+ * Background uses a local storefront hero image via CSS variable --betz-mock-hero-bg.
  */
 export function FranchiseHero() {
   const sectionStyle = {

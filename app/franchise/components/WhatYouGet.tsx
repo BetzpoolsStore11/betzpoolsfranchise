@@ -1,6 +1,6 @@
 import Image from "next/image";
 import storeInterior from "../../../assets/store-interior.webp";
-import truckWrap from "../../../assets/truck-wrap.webp";
+import systemImage from "../../../assets/the-system-image.png";
 import { Reveal } from "./Reveal";
 
 const items = [
@@ -88,8 +88,8 @@ export function WhatYouGet() {
           </div>
           <div className="betz-mock-strip-cell betz-mock-strip-truck">
             <Image
-              src={truckWrap}
-              alt="Betz Pools branded service truck"
+              src={systemImage}
+              alt="Betz Pools branded truck system"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover object-top"
