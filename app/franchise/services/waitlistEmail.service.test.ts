@@ -10,6 +10,7 @@ import {
   createAdminEmailOptions,
   createAutoResponseEmailOptions,
   createFranchiseDeckUrl,
+  getWaitlistEmailEnvironment,
   sendWaitlistEmails,
 } from "./waitlistEmail.service";
 import {
@@ -91,6 +92,26 @@ describe("waitlist submission helpers", () => {
     expect(createFranchiseDeckUrl("https://example.com/")).toBe(
       "https://example.com/franchise-platform-overview-8q4m2x9v"
     );
+  });
+
+  it("uses the canonical happy-path site URL when only Vercel URL is present", () => {
+    const environmentResult = getWaitlistEmailEnvironment({
+      RESEND_API_KEY: "re_test_key",
+      RESEND_FROM_EMAIL: "Betz Pools Franchise <noreply@betzpoolsfranchise.com>",
+      ADMIN_EMAIL: "admin@example.com",
+      VERCEL_URL: "betzpoolsfranchise-kpva4wud3-betz-pools-limited.vercel.app",
+    });
+
+    expect(environmentResult).toEqual({
+      isValid: true,
+      environment: {
+        resendApiKey: "re_test_key",
+        resendFromEmail: "Betz Pools Franchise <noreply@betzpoolsfranchise.com>",
+        adminEmail: "admin@example.com",
+        autoResponseBccEmails: "",
+        siteBaseUrl: "https://betzpoolsfranchise.com",
+      },
+    });
   });
 
   it("sends both happy-path emails with a mocked email client", async () => {

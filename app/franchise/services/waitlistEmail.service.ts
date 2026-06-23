@@ -44,9 +44,6 @@ export function getWaitlistEmailEnvironment(
     environmentVariables.BETZ_FRANCHISE_BASE_URL?.trim() ??
     environmentVariables.NEXT_PUBLIC_SITE_URL?.trim() ??
     "";
-  const vercelSiteBaseUrl = environmentVariables.VERCEL_URL?.trim()
-    ? `https://${environmentVariables.VERCEL_URL.trim()}`
-    : "";
 
   if (!resendApiKey || !resendFromEmail || !adminEmail) {
     return {
@@ -62,7 +59,7 @@ export function getWaitlistEmailEnvironment(
       resendFromEmail,
       adminEmail,
       autoResponseBccEmails,
-      siteBaseUrl: configuredSiteBaseUrl || vercelSiteBaseUrl || default_site_base_url,
+      siteBaseUrl: configuredSiteBaseUrl || default_site_base_url,
     },
   };
 }
@@ -226,35 +223,37 @@ function createAutoResponseHtml(name: string, deckUrl: string): string {
 
   return `<!doctype html>
 <html lang="en">
-  <body style="margin:0;background:#edf6fb;padding:0;font-family:Arial,Helvetica,sans-serif;color:#142033;">
-    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#edf6fb;margin:0;padding:32px 16px;">
+  <body style="margin:0;background:#e8f4fc;padding:0;font-family:Arial,Helvetica,sans-serif;color:#1e293b;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#e8f4fc;margin:0;padding:32px 16px;">
       <tr>
         <td align="center">
-          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:680px;background:#ffffff;border:1px solid #d9e7ef;border-radius:8px;overflow:hidden;">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:680px;background:#ffffff;border:1px solid #d7e7f0;border-radius:8px;overflow:hidden;box-shadow:0 18px 44px rgba(10,22,40,0.08);">
             <tr>
-              <td style="background:#08192f;padding:30px 34px;border-bottom:4px solid #c9a227;">
-                <p style="margin:0 0 8px;color:#e8d48a;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;">Betz Pools Franchise</p>
-                <h1 style="margin:0;color:#ffffff;font-size:28px;line-height:1.2;font-weight:700;">Designated Service Area Application</h1>
+              <td style="background:#0a1628;padding:32px 36px 30px;border-bottom:4px solid #c9a227;">
+                <p style="margin:0 0 10px;color:#e8d48a;font-size:12px;line-height:1.4;font-weight:700;letter-spacing:2px;text-transform:uppercase;">Betz Pools Franchise</p>
+                <h1 style="margin:0;color:#ffffff;font-size:30px;line-height:1.16;font-weight:700;">Designated Service Area Application</h1>
+                <p style="margin:14px 0 0;color:rgba(255,255,255,0.78);font-size:15px;line-height:1.6;">Your application has been received for our initial Designated Service Area review group.</p>
               </td>
             </tr>
             <tr>
-              <td style="padding:34px;">
-                <p style="margin:0 0 18px;font-size:16px;line-height:1.65;color:#142033;">Hi ${safeName},</p>
-                <p style="margin:0 0 18px;font-size:16px;line-height:1.65;color:#142033;">Thank you for your interest in owning a Betz Pools Designated Service Area.</p>
-                <p style="margin:0 0 18px;font-size:16px;line-height:1.65;color:#142033;">We&rsquo;ve received your application and have included you in our initial review group.</p>
-                <p style="margin:0 0 18px;font-size:16px;line-height:1.65;color:#142033;">We are currently preparing for the launch of our first franchise areas this September &mdash; a meaningful step in expanding the Betz platform across new markets. This is not a broad rollout. Our focus is on building a small group of strong operators who can establish and lead their Designated Service Area with the level of service and professionalism the Betz brand has been known for since 1945.</p>
-                <p style="margin:0 0 18px;font-size:16px;line-height:1.65;color:#142033;">The opportunity is structured around a fully integrated model &mdash; combining retail, weekly service, and supply &mdash; designed to create long-term, recurring revenue within each area. As markets develop, the goal is to build density, strengthen customer relationships, and create a scalable local business supported by centralized systems.</p>
-                <p style="margin:0 0 24px;font-size:16px;line-height:1.65;color:#142033;">We are reviewing all applications carefully and in sequence as we move toward our first allocations.</p>
-                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin:0 0 26px;background:#f7fbfd;border:1px solid #d9e7ef;border-radius:6px;">
+              <td style="padding:36px;">
+                <p style="margin:0 0 18px;font-size:16px;line-height:1.68;color:#0a1628;">Hi ${safeName},</p>
+                <p style="margin:0 0 18px;font-size:16px;line-height:1.68;color:#334155;">Thank you for your interest in owning a Betz Pools Designated Service Area.</p>
+                <p style="margin:0 0 18px;font-size:16px;line-height:1.68;color:#334155;">We&rsquo;ve received your application and have included you in our initial review group.</p>
+                <p style="margin:0 0 18px;font-size:16px;line-height:1.68;color:#334155;">We are currently preparing for the launch of our first franchise areas this September &mdash; a meaningful step in expanding the Betz platform across new markets. This is not a broad rollout. Our focus is on building a small group of strong operators who can establish and lead their Designated Service Area with the level of service and professionalism the Betz brand has been known for since 1945.</p>
+                <p style="margin:0 0 18px;font-size:16px;line-height:1.68;color:#334155;">The opportunity is structured around a fully integrated model &mdash; combining retail, weekly service, and supply &mdash; designed to create long-term, recurring revenue within each area. As markets develop, the goal is to build density, strengthen customer relationships, and create a scalable local business supported by centralized systems.</p>
+                <p style="margin:0 0 26px;font-size:16px;line-height:1.68;color:#334155;">We are reviewing all applications carefully and in sequence as we move toward our first allocations.</p>
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin:0 0 28px;background:#f7fbfd;border:1px solid #d7e7f0;border-radius:8px;">
                   <tr>
-                    <td style="padding:22px;">
-                      <p style="margin:0 0 14px;font-size:15px;line-height:1.6;color:#334155;">The Betz Pools platform overview provides additional detail on how the model is structured and how markets are developed over time.</p>
-                      <a href="${safeDeckUrl}" style="display:inline-block;background:#0096d6;color:#ffffff;text-decoration:none;font-size:14px;font-weight:700;padding:13px 18px;border-radius:4px;">View Platform Overview</a>
+                    <td style="padding:24px 24px 26px;border-left:4px solid #c9a227;">
+                      <p style="margin:0 0 16px;color:#c9a227;font-size:12px;line-height:1.4;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;">Platform Overview</p>
+                      <p style="margin:0 0 18px;font-size:16px;line-height:1.62;color:#1e293b;">The Betz Pools platform overview provides additional detail on how the model is structured and how markets are developed over time.</p>
+                      <a href="${safeDeckUrl}" style="display:inline-block;background:#0096d6;color:#ffffff;text-decoration:none;font-size:13px;line-height:1.2;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:14px 18px;border-radius:8px;">View Platform Overview</a>
                     </td>
                   </tr>
                 </table>
-                <p style="margin:0 0 22px;font-size:16px;line-height:1.65;color:#142033;">We will be in touch shortly with next steps.</p>
-                <p style="margin:0;font-size:16px;line-height:1.65;color:#142033;">Best regards,<br />Betz Pools Franchise Team</p>
+                <p style="margin:0 0 22px;font-size:16px;line-height:1.68;color:#334155;">We will be in touch shortly with next steps.</p>
+                <p style="margin:0;font-size:16px;line-height:1.68;color:#0a1628;">Best regards,<br />Betz Pools Franchise Team</p>
               </td>
             </tr>
           </table>
