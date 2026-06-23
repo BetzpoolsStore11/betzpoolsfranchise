@@ -1,46 +1,68 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 import styles from "./presentation.module.css";
 
 type PresentationFrameProps = {
-  sourceUrl: string;
+  slideUrls: string[];
 };
 
 /**
- * Purpose: Renders the SharePoint presentation iframe with a branded loading state.
- * Parameters: sourceUrl - SharePoint embed-view URL used as the iframe source.
+ * Purpose: Renders the local presentation deck as a custom slideshow without PDF viewer chrome.
+ * Parameters: slideUrls - ordered slide image URLs.
  */
-export function PresentationFrame({ sourceUrl }: PresentationFrameProps) {
-  const [isLoaded, setIsLoaded] = useState(false);
+export function PresentationFrame({ slideUrls }: PresentationFrameProps) {
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const slideCount = slideUrls.length;
+  const currentSlideUrl = slideUrls[currentSlideIndex];
+
+  if (slideCount === 0) {
+    return null;
+  }
 
   return (
-    <div className={styles.viewerPanel}>
-      {!isLoaded && (
-        <div className={styles.viewerLoading} aria-live="polite">
-          <div className={styles.viewerLoadingMark} aria-hidden />
-          <p className={styles.viewerLoadingTitle}>Loading presentation</p>
-          <p className={styles.viewerLoadingText}>
-            The secure PowerPoint viewer is opening from SharePoint.
-          </p>
+    <div className={styles.viewerBlock}>
+      <div className={styles.viewerPanel}>
+        <div className={styles.slideStage}>
+          <Image
+            src={currentSlideUrl}
+            alt={`Betz Pools platform overview slide ${currentSlideIndex + 1} of ${slideCount}`}
+            className={styles.slideImage}
+            fill
+            priority={currentSlideIndex === 0}
+            sizes="(max-width: 720px) calc(100vw - 32px), min(1040px, 100vw)"
+          />
         </div>
-      )}
-      <iframe
-        src={sourceUrl}
-        width="100%"
-        height="720"
-        frameBorder="0"
-        title="Betz Pools Franchise Deck"
-        className={styles.viewerFrame}
-        referrerPolicy="no-referrer-when-downgrade"
-        sandbox="allow-downloads allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-        loading="eager"
-        allowFullScreen
-        onLoad={() => setIsLoaded(true)}
-      >
-        This is an embedded Microsoft Office presentation.
-      </iframe>
+        <div className={styles.slideControls} aria-label="Presentation controls">
+          <button
+            className={styles.slideControlButton}
+            type="button"
+            onClick={() =>
+              setCurrentSlideIndex((previousIndex) =>
+                previousIndex === 0 ? slideCount - 1 : previousIndex - 1
+              )
+            }
+          >
+            Previous
+          </button>
+          <p className={styles.slideCounter} aria-live="polite">
+            Slide {currentSlideIndex + 1} of {slideCount}
+          </p>
+          <button
+            className={styles.slideControlButton}
+            type="button"
+            onClick={() =>
+              setCurrentSlideIndex((previousIndex) =>
+                previousIndex === slideCount - 1 ? 0 : previousIndex + 1
+              )
+            }
+          >
+            Next
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

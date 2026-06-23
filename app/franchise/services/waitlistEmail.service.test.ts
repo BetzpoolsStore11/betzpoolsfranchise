@@ -80,12 +80,20 @@ describe("waitlist submission helpers", () => {
       subject: "Thank you for your interest in owning a Betz Pools Designated Service Area.",
       bcc: ["owner@example.com", "manager@example.com"],
     });
-    expect(emailOptions.text).toContain("Hi Jane Smith,");
     expect(emailOptions.text).toContain(
-      "https://example.com/franchise-platform-overview-8q4m2x9v"
+      "Thank you for your interest in owning a Betz Pools Designated Service Area."
+    );
+    expect(emailOptions.text).toContain(
+      "Attached is an overview of the Betz Pools platform, which provides additional detail on how the model is structured and how markets are developed over time."
+    );
+    expect(emailOptions.text).toContain(
+      "https://betzpoolsfranchise.com/franchise-platform-overview-8q4m2x9v"
+    );
+    expect(emailOptions.html).toContain(
+      'href="https://betzpoolsfranchise.com/franchise-platform-overview-8q4m2x9v"'
     );
     expect(emailOptions.html).toContain("View Platform Overview");
-    expect(emailOptions.text).toContain("Betz Pools Franchise Team");
+    expect(emailOptions.text).not.toContain("Betz Pools Franchise Team");
   });
 
   it("creates a happy-path franchise deck URL", () => {

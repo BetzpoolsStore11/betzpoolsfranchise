@@ -13,6 +13,8 @@ const franchise_deck_page_path = "/franchise-platform-overview-8q4m2x9v";
 
 const default_site_base_url = "https://betzpoolsfranchise.com";
 
+const canonical_franchise_deck_url = `${default_site_base_url}${franchise_deck_page_path}`;
+
 const autoResponseSubject =
   "Thank you for your interest in owning a Betz Pools Designated Service Area.";
 
@@ -189,71 +191,66 @@ export function createAdminEmailOptions(
 
 /**
  * Purpose: Builds the plain-text autoresponse body sent to the applicant.
- * Parameters: name - normalized applicant name.
+ * Parameters: deckUrl - absolute URL for the platform overview call to action.
  */
-function createAutoResponseText(name: string, deckUrl: string): string {
-  return `Hi ${name},
+function createAutoResponseText(deckUrl: string): string {
+  return `Thank you for your interest in owning a Betz Pools Designated Service Area.
 
-Thank you for your interest in owning a Betz Pools Designated Service Area.
+We’ve received your application and have included you in our initial review group.
 
-We've received your application and have included you in our initial review group.
+We are currently preparing for the launch of our first franchise areas this September — a meaningful step in expanding the Betz platform across new markets. This is not a broad rollout. Our focus is on building a small group of strong operators who can establish and lead their Designated Service Area with the level of service and professionalism the Betz brand has been known for since 1945.
 
-We are currently preparing for the launch of our first franchise areas this September - a meaningful step in expanding the Betz platform across new markets. This is not a broad rollout. Our focus is on building a small group of strong operators who can establish and lead their Designated Service Area with the level of service and professionalism the Betz brand has been known for since 1945.
-
-The opportunity is structured around a fully integrated model - combining retail, weekly service, and supply - designed to create long-term, recurring revenue within each area. As markets develop, the goal is to build density, strengthen customer relationships, and create a scalable local business supported by centralized systems.
+The opportunity is structured around a fully integrated model — combining retail, weekly service, and supply — designed to create long-term, recurring revenue within each area. As markets develop, the goal is to build density, strengthen customer relationships, and create a scalable local business supported by centralized systems.
 
 We are reviewing all applications carefully and in sequence as we move toward our first allocations.
 
-The Betz Pools platform overview is available here:
+Attached is an overview of the Betz Pools platform, which provides additional detail on how the model is structured and how markets are developed over time.
+
+View the platform overview:
 ${deckUrl}
 
-We will be in touch shortly with next steps.
-
-Best regards,
-Betz Pools Franchise Team`;
+We will be in touch shortly with next steps.`;
 }
 
 /**
  * Purpose: Builds a branded HTML autoresponse email for franchise applicants.
- * Parameters: name - normalized applicant name; deckUrl - absolute URL for the platform overview page.
+ * Parameters: deckUrl - absolute URL for the platform overview call to action.
  */
-function createAutoResponseHtml(name: string, deckUrl: string): string {
-  const safeName = escapeHtml(name);
+function createAutoResponseHtml(deckUrl: string): string {
   const safeDeckUrl = escapeHtml(deckUrl);
 
   return `<!doctype html>
 <html lang="en">
-  <body style="margin:0;background:#e8f4fc;padding:0;font-family:Arial,Helvetica,sans-serif;color:#1e293b;">
-    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#e8f4fc;margin:0;padding:32px 16px;">
+  <body style="margin:0;background:#f7f8f8;padding:0;font-family:Arial,Helvetica,sans-serif;color:#1e293b;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f7f8f8;margin:0;padding:32px 16px;">
       <tr>
         <td align="center">
-          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:680px;background:#ffffff;border:1px solid #d7e7f0;border-radius:8px;overflow:hidden;box-shadow:0 18px 44px rgba(10,22,40,0.08);">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:680px;background:#ffffff;border:1px solid #dce6ea;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(10,22,40,0.08);">
             <tr>
-              <td style="background:#0a1628;padding:32px 36px 30px;border-bottom:4px solid #c9a227;">
-                <p style="margin:0 0 10px;color:#e8d48a;font-size:12px;line-height:1.4;font-weight:700;letter-spacing:2px;text-transform:uppercase;">Betz Pools Franchise</p>
+              <td style="background:#07172d;background-image:radial-gradient(circle at 0% 100%, rgba(0,150,214,0.78) 0, rgba(15,79,120,0.46) 24%, rgba(7,23,45,0) 52%),linear-gradient(180deg,#07172d 0%,#0b2340 58%,#123b5f 100%);padding:34px 36px 32px;border-bottom:4px solid #0096d6;">
+                <p style="margin:0 0 10px;color:#39bfd3;font-size:12px;line-height:1.4;font-weight:700;letter-spacing:2.6px;text-transform:uppercase;">Betz Pools Franchise</p>
                 <h1 style="margin:0;color:#ffffff;font-size:30px;line-height:1.16;font-weight:700;">Designated Service Area Application</h1>
-                <p style="margin:14px 0 0;color:rgba(255,255,255,0.78);font-size:15px;line-height:1.6;">Your application has been received for our initial Designated Service Area review group.</p>
+                <p style="margin:14px 0 0;color:#d7e7f0;font-size:15px;line-height:1.6;">Your application has been received for our initial Designated Service Area review group.</p>
               </td>
             </tr>
             <tr>
               <td style="padding:36px;">
-                <p style="margin:0 0 18px;font-size:16px;line-height:1.68;color:#0a1628;">Hi ${safeName},</p>
                 <p style="margin:0 0 18px;font-size:16px;line-height:1.68;color:#334155;">Thank you for your interest in owning a Betz Pools Designated Service Area.</p>
                 <p style="margin:0 0 18px;font-size:16px;line-height:1.68;color:#334155;">We&rsquo;ve received your application and have included you in our initial review group.</p>
                 <p style="margin:0 0 18px;font-size:16px;line-height:1.68;color:#334155;">We are currently preparing for the launch of our first franchise areas this September &mdash; a meaningful step in expanding the Betz platform across new markets. This is not a broad rollout. Our focus is on building a small group of strong operators who can establish and lead their Designated Service Area with the level of service and professionalism the Betz brand has been known for since 1945.</p>
                 <p style="margin:0 0 18px;font-size:16px;line-height:1.68;color:#334155;">The opportunity is structured around a fully integrated model &mdash; combining retail, weekly service, and supply &mdash; designed to create long-term, recurring revenue within each area. As markets develop, the goal is to build density, strengthen customer relationships, and create a scalable local business supported by centralized systems.</p>
-                <p style="margin:0 0 26px;font-size:16px;line-height:1.68;color:#334155;">We are reviewing all applications carefully and in sequence as we move toward our first allocations.</p>
-                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin:0 0 28px;background:#f7fbfd;border:1px solid #d7e7f0;border-radius:8px;">
+                <p style="margin:0 0 18px;font-size:16px;line-height:1.68;color:#334155;">We are reviewing all applications carefully and in sequence as we move toward our first allocations.</p>
+                <p style="margin:0 0 26px;font-size:16px;line-height:1.68;color:#334155;">Attached is an overview of the Betz Pools platform, which provides additional detail on how the model is structured and how markets are developed over time.</p>
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin:0 0 28px;background:#f7f8f8;border:1px solid #dce6ea;border-radius:12px;">
                   <tr>
-                    <td style="padding:24px 24px 26px;border-left:4px solid #c9a227;">
-                      <p style="margin:0 0 16px;color:#c9a227;font-size:12px;line-height:1.4;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;">Platform Overview</p>
-                      <p style="margin:0 0 18px;font-size:16px;line-height:1.62;color:#1e293b;">The Betz Pools platform overview provides additional detail on how the model is structured and how markets are developed over time.</p>
-                      <a href="${safeDeckUrl}" style="display:inline-block;background:#0096d6;color:#ffffff;text-decoration:none;font-size:13px;line-height:1.2;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:14px 18px;border-radius:8px;">View Platform Overview</a>
+                    <td style="padding:24px 24px 26px;border-left:4px solid #0096d6;">
+                      <p style="margin:0 0 10px;color:#0096d6;font-size:12px;line-height:1.4;font-weight:700;letter-spacing:2px;text-transform:uppercase;">Platform Overview</p>
+                      <p style="margin:0 0 18px;font-size:16px;line-height:1.62;color:#243342;">Review the applicant-only platform overview for the Designated Service Area model, operating structure, and market development approach.</p>
+                      <a href="${safeDeckUrl}" style="display:inline-block;background:#0096d6;color:#ffffff !important;text-decoration:none;font-size:13px;line-height:1.2;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:14px 18px;border-radius:8px;">View Platform Overview</a>
                     </td>
                   </tr>
                 </table>
-                <p style="margin:0 0 22px;font-size:16px;line-height:1.68;color:#334155;">We will be in touch shortly with next steps.</p>
-                <p style="margin:0;font-size:16px;line-height:1.68;color:#0a1628;">Best regards,<br />Betz Pools Franchise Team</p>
+                <p style="margin:0;font-size:16px;line-height:1.68;color:#334155;">We will be in touch shortly with next steps.</p>
               </td>
             </tr>
           </table>
@@ -273,14 +270,13 @@ export function createAutoResponseEmailOptions(
   environment: WaitlistEmailEnvironment
 ): WaitlistEmailOptions {
   const bcc = parseBccEmails(environment.autoResponseBccEmails);
-  const deckUrl = createFranchiseDeckUrl(environment.siteBaseUrl);
-  const text = createAutoResponseText(payload.name, deckUrl);
+  const text = createAutoResponseText(canonical_franchise_deck_url);
   const emailOptions: WaitlistEmailOptions = {
     from: environment.resendFromEmail,
     to: payload.email,
     subject: autoResponseSubject,
     text,
-    html: createAutoResponseHtml(payload.name, deckUrl),
+    html: createAutoResponseHtml(canonical_franchise_deck_url),
   };
 
   if (bcc.length > 0) {
