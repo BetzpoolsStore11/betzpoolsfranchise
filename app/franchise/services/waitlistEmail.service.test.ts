@@ -9,6 +9,7 @@ import type {
 import {
   createAdminEmailOptions,
   createAutoResponseEmailOptions,
+  createFranchiseDeckUrl,
   sendWaitlistEmails,
 } from "./waitlistEmail.service";
 import {
@@ -43,6 +44,7 @@ const validEnvironment: WaitlistEmailEnvironment = {
   resendFromEmail: "Betz Pools Franchise <noreply@betzpoolsfranchise.com>",
   adminEmail: "admin@example.com",
   autoResponseBccEmails: "owner@example.com, manager@example.com",
+  siteBaseUrl: "https://example.com/",
 };
 
 describe("waitlist submission helpers", () => {
@@ -78,7 +80,17 @@ describe("waitlist submission helpers", () => {
       bcc: ["owner@example.com", "manager@example.com"],
     });
     expect(emailOptions.text).toContain("Hi Jane Smith,");
+    expect(emailOptions.text).toContain(
+      "https://example.com/franchise-platform-overview-8q4m2x9v"
+    );
+    expect(emailOptions.html).toContain("View Platform Overview");
     expect(emailOptions.text).toContain("Betz Pools Franchise Team");
+  });
+
+  it("creates a happy-path franchise deck URL", () => {
+    expect(createFranchiseDeckUrl("https://example.com/")).toBe(
+      "https://example.com/franchise-platform-overview-8q4m2x9v"
+    );
   });
 
   it("sends both happy-path emails with a mocked email client", async () => {

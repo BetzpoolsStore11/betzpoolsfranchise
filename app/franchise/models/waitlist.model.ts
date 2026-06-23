@@ -31,6 +31,7 @@ export type WaitlistEmailEnvironment = {
   resendFromEmail: string;
   adminEmail: string;
   autoResponseBccEmails: string;
+  siteBaseUrl: string;
 };
 
 export type WaitlistEmailEnvironmentResult =
