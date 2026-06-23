@@ -4,8 +4,10 @@ import Link from "next/link";
 import { PresentationFrame } from "./PresentationFrame";
 import styles from "./presentation.module.css";
 
-const sharepoint_deck_embed_url =
-  "https://betzpools-my.sharepoint.com/personal/rfuertes_betzpools_com/_layouts/15/Doc.aspx?sourcedoc=%7B5bc51e9e-6f80-43c5-b34d-e385804cdcea%7D&action=embedview&wdAr=1.7777777777777777";
+const franchise_deck_slide_urls = Array.from(
+  { length: 14 },
+  (_, index) => `/decks/platform-overview-slides/slide-${String(index + 1).padStart(2, "0")}.png`
+);
 
 export const metadata: Metadata = {
   title: "Betz Pools Franchise Platform Overview",
@@ -17,7 +19,7 @@ export const metadata: Metadata = {
 };
 
 /**
- * Purpose: Renders the applicant-only franchise deck page with an embedded SharePoint presentation.
+ * Purpose: Renders the applicant-only franchise deck page with an embedded local presentation PDF.
  * Parameters: None.
  */
 export default function FranchisePlatformOverviewPage() {
@@ -41,7 +43,7 @@ export default function FranchisePlatformOverviewPage() {
           </Link>
         </div>
 
-        <PresentationFrame sourceUrl={sharepoint_deck_embed_url} />
+        <PresentationFrame slideUrls={franchise_deck_slide_urls} />
       </section>
     </main>
   );

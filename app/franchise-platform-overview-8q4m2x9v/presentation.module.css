@@ -1,10 +1,9 @@
 .presentationShell {
   min-height: 100vh;
-  background:
-    linear-gradient(180deg, rgba(8, 25, 47, 0.96), rgba(8, 25, 47, 0.88)),
-    url("/hero-franchise.png") center / cover;
+  background: #ffffff;
   padding: 0 clamp(20px, 5vw, 48px);
-  color: #ffffff;
+  color: hsl(200 35% 10%);
+  font-family: var(--font-betz-body), system-ui, sans-serif;
 }
 
 .presentationInner {
@@ -36,115 +35,125 @@
 }
 
 .presentationLabel {
-  margin: 0;
-  color: #e8d48a;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.18em;
+  margin: 0 0 0.75rem;
+  color: hsl(187 78% 42%);
+  font: 600 0.75rem/1.2 var(--font-betz-body), system-ui, sans-serif;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
 }
 
 .presentationTitle {
   margin: 0;
-  color: #ffffff;
-  font-family: var(--font-fran-serif), Georgia, serif;
+  color: hsl(200 35% 10%);
+  font-family: var(--font-betz-serif), Georgia, serif;
   font-size: clamp(2rem, 5vw, 4rem);
-  font-weight: 650;
+  font-weight: 600;
   line-height: 1.02;
 }
 
 .presentationIntro {
   margin: 0;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: clamp(1rem, 1.6vw, 1.125rem);
+  color: hsl(200 10% 46%);
+  font: 400 clamp(1rem, 1.6vw, 1.125rem) / 1.65 var(--font-betz-body), system-ui, sans-serif;
   line-height: 1.65;
   max-width: 64ch;
 }
 
-.backLink {
+.presentationShell .backLink {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 42px;
+  min-height: 43px;
   flex: 0 0 auto;
-  padding: 0 16px;
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  border-radius: 4px;
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 8px;
+  background: #0096d6;
   color: #ffffff;
-  font-size: 0.85rem;
-  font-weight: 750;
+  font-family: var(--font-betz-body), system-ui, sans-serif;
+  font-size: clamp(0.75rem, 1.1vw, 0.875rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
   text-decoration: none;
+  white-space: nowrap;
   transition:
     background 0.2s ease,
-    border-color 0.2s ease;
+    box-shadow 0.2s ease;
 }
 
-.backLink:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.44);
+.presentationShell .backLink:hover {
+  background: #0080b8;
+  box-shadow: 0 4px 14px rgba(0, 150, 214, 0.35);
+}
+
+.viewerBlock {
+  width: min(1040px, 100%);
+  margin: 0 auto;
 }
 
 .viewerPanel {
   position: relative;
-  width: min(1040px, 100%);
-  margin: 0 auto;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 8px;
+  border: 1px solid hsl(200 15% 88%);
+  border-radius: 1rem;
   background: #ffffff;
-  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
+  box-shadow: 0 4px 20px -4px hsl(200 35% 10% / 0.08);
 }
 
-.viewerLoading {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
+.slideStage {
+  position: relative;
   display: grid;
-  place-content: center;
-  justify-items: center;
-  gap: 10px;
-  padding: 32px;
-  background: linear-gradient(180deg, #0b213f 0%, #08192f 100%);
-  text-align: center;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #061a33;
 }
 
-.viewerLoadingMark {
-  width: 34px;
-  height: 34px;
-  border: 3px solid rgba(232, 212, 138, 0.28);
-  border-top-color: #e8d48a;
-  border-radius: 50%;
-  animation: viewerSpin 0.9s linear infinite;
-}
-
-.viewerLoadingTitle {
-  margin: 6px 0 0;
-  color: #ffffff;
-  font-size: 1rem;
-  font-weight: 800;
-}
-
-.viewerLoadingText {
-  max-width: 32ch;
-  margin: 0;
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-@keyframes viewerSpin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.viewerFrame {
+.slideImage {
   display: block;
   width: 100%;
-  height: min(64vh, 680px);
-  min-height: 480px;
-  border: 0;
+  height: 100%;
+  object-fit: contain;
+}
+
+.slideControls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border-top: 1px solid hsl(200 15% 88%);
   background: #ffffff;
+}
+
+.slideControlButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 9px 14px;
+  border: 0;
+  border-radius: 8px;
+  background: #0096d6;
+  color: #ffffff;
+  cursor: pointer;
+  font: 700 0.8rem/1.2 var(--font-betz-body), system-ui, sans-serif;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.slideControlButton:hover {
+  background: #0080b8;
+  box-shadow: 0 4px 14px rgba(0, 150, 214, 0.28);
+}
+
+.slideCounter {
+  min-width: 92px;
+  margin: 0;
+  color: hsl(200 35% 10%);
+  font: 700 0.9rem/1.4 var(--font-betz-body), system-ui, sans-serif;
+  text-align: center;
 }
 
 @media (max-width: 720px) {
@@ -171,8 +180,19 @@
     width: fit-content;
   }
 
-  .viewerFrame {
-    height: 58vh;
-    min-height: 360px;
+  .slideControls {
+    gap: 10px;
+    padding: 12px;
   }
+
+  .slideControlButton {
+    min-height: 36px;
+    padding: 8px 12px;
+  }
+
+  .slideCounter {
+    min-width: 78px;
+    font-size: 0.82rem;
+  }
+
 }
