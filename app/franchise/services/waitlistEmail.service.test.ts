@@ -85,14 +85,13 @@ describe("waitlist submission helpers", () => {
       "Thank you for your interest in owning a Betz Pools Designated Service Area."
     );
     expect(emailOptions.text).toContain(
-      "Your Betz Pools Franchise Platform Overview is attached to this email as a PDF."
+      "Attached is an overview of the Betz Pools platform, which provides additional detail on how the model is structured and how markets are developed over time."
     );
-    expect(emailOptions.text).toContain("The document is attached below this message.");
     expect(emailOptions.html).toContain(
       "https://betzpools.com/wp-content/uploads/2023/06/BetzPools-Primary_Logo.png"
     );
-    expect(emailOptions.html).toContain("Attached Document");
-    expect(emailOptions.html).toContain("Betz Pools Franchise Platform Overview.pdf");
+    expect(emailOptions.html).toContain('class="email-logo-cell"');
+    expect(emailOptions.html).not.toContain("Attached Document");
     expect(emailOptions.html).not.toContain("<iframe");
     expect(emailOptions.text).not.toContain("https://");
     expect(emailOptions.html).not.toContain("<a ");
