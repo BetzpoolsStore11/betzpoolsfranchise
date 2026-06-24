@@ -230,12 +230,7 @@ The opportunity is structured around a fully integrated model — combining reta
 
 We are reviewing all applications carefully and in sequence as we move toward our first allocations.
 
-Your Betz Pools Franchise Platform Overview is attached to this email as a PDF. It provides additional detail on how the model is structured and how markets are developed over time.
-
-ATTACHED DOCUMENT
-Betz Pools Franchise Platform Overview.pdf
-PDF document
-The document is attached below this message.
+Attached is an overview of the Betz Pools platform, which provides additional detail on how the model is structured and how markets are developed over time.
 
 We will be in touch shortly with next steps.`;
 }
@@ -253,8 +248,10 @@ function createAutoResponseHtml(): string {
     <style>
       @media only screen and (max-width: 700px) {
         .email-shell { width: 100% !important; max-width: 100% !important; }
-        .email-logo { padding: 20px 24px !important; }
-        .email-hero { padding: 28px 24px 26px !important; }
+        .email-header { padding: 24px !important; }
+        .email-logo-cell { width: 88px !important; padding-right: 18px !important; }
+        .email-logo-image { width: 88px !important; }
+        .email-title { font-size: 23px !important; }
         .email-body { padding: 30px 24px !important; }
       }
     </style>
@@ -266,15 +263,19 @@ function createAutoResponseHtml(): string {
           <div style="width:100%;max-width:680px;margin:0 auto;">
           <table role="presentation" width="100%" cellspacing="0" cellpadding="0" class="email-shell" style="width:100%;table-layout:fixed;background:#ffffff;border:1px solid #d8e3e7;border-radius:10px;overflow:hidden;">
             <tr>
-              <td class="email-logo" style="padding:22px 36px;background:#ffffff;border-bottom:1px solid #e5ecef;">
-                <img src="${betz_pools_logo_url}" width="120" alt="Betz Pools" style="display:block;width:120px;max-width:100%;height:auto;border:0;" />
-              </td>
-            </tr>
-            <tr>
-              <td class="email-hero" style="background:#0a1f2c;padding:30px 36px 28px;border-bottom:4px solid #0096d6;overflow-wrap:break-word;">
-                <p style="margin:0 0 10px;color:#35b7c8;font-size:11px;line-height:1.4;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;">Franchise Application</p>
-                <h1 style="margin:0;color:#ffffff;font-size:27px;line-height:1.2;font-weight:700;">Designated Service Area Application</h1>
-                <p style="margin:13px 0 0;color:#d9e7ec;font-size:15px;line-height:1.6;">Your application has been received for our initial Designated Service Area review group.</p>
+              <td class="email-header" style="padding:28px 36px;background:#ffffff;border-bottom:4px solid #0096d6;overflow-wrap:break-word;">
+                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="width:100%;table-layout:fixed;">
+                  <tr>
+                    <td class="email-logo-cell" width="112" valign="middle" style="width:112px;padding:0 24px 0 0;">
+                      <img class="email-logo-image" src="${betz_pools_logo_url}" width="112" alt="Betz Pools" style="display:block;width:112px;max-width:100%;height:auto;border:0;" />
+                    </td>
+                    <td valign="middle" style="overflow-wrap:break-word;">
+                      <p style="margin:0 0 8px;color:#087da9;font-size:11px;line-height:1.4;font-weight:700;letter-spacing:2px;text-transform:uppercase;">Franchise Application</p>
+                      <h1 class="email-title" style="margin:0;color:#0a1f2c;font-size:27px;line-height:1.2;font-weight:700;">Designated Service Area Application</h1>
+                      <p style="margin:12px 0 0;color:#475569;font-size:14px;line-height:1.55;">Your application has been received for our initial Designated Service Area review group.</p>
+                    </td>
+                  </tr>
+                </table>
               </td>
             </tr>
             <tr>
@@ -284,26 +285,7 @@ function createAutoResponseHtml(): string {
                 <p style="margin:0 0 18px;font-size:16px;line-height:1.68;color:#334155;">We are currently preparing for the launch of our first franchise areas this September &mdash; a meaningful step in expanding the Betz platform across new markets. This is not a broad rollout. Our focus is on building a small group of strong operators who can establish and lead their Designated Service Area with the level of service and professionalism the Betz brand has been known for since 1945.</p>
                 <p style="margin:0 0 18px;font-size:16px;line-height:1.68;color:#334155;">The opportunity is structured around a fully integrated model &mdash; combining retail, weekly service, and supply &mdash; designed to create long-term, recurring revenue within each area. As markets develop, the goal is to build density, strengthen customer relationships, and create a scalable local business supported by centralized systems.</p>
                 <p style="margin:0 0 18px;font-size:16px;line-height:1.68;color:#334155;">We are reviewing all applications carefully and in sequence as we move toward our first allocations.</p>
-                <p style="margin:0 0 20px;font-size:16px;line-height:1.68;color:#334155;">Your Betz Pools Franchise Platform Overview is attached to this email as a PDF. It provides additional detail on how the model is structured and how markets are developed over time.</p>
-                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin:0 0 24px;background:#f0f8fb;border:1px solid #cfe2e9;border-left:4px solid #0096d6;border-radius:8px;">
-                  <tr>
-                    <td style="padding:20px;">
-                      <p style="margin:0 0 13px;color:#087da9;font-size:11px;line-height:1.4;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;">Attached Document</p>
-                      <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="width:100%;table-layout:fixed;">
-                        <tr>
-                          <td width="48" valign="top" style="width:48px;padding:0 14px 0 0;">
-                            <div style="width:44px;padding:12px 0;background:#d9473f;color:#ffffff;font-size:11px;line-height:1;font-weight:700;text-align:center;border-radius:5px;">PDF</div>
-                          </td>
-                          <td valign="middle" style="overflow-wrap:break-word;">
-                            <p style="margin:0 0 4px;color:#0a1f2c;font-size:15px;line-height:1.4;font-weight:700;">Betz Pools Franchise Platform Overview.pdf</p>
-                            <p style="margin:0 0 5px;color:#64748b;font-size:13px;line-height:1.45;">PDF document</p>
-                            <p style="margin:0;color:#334155;font-size:13px;line-height:1.5;">The document is attached below this message.</p>
-                          </td>
-                        </tr>
-                      </table>
-                    </td>
-                  </tr>
-                </table>
+                <p style="margin:0 0 18px;font-size:16px;line-height:1.68;color:#334155;">Attached is an overview of the Betz Pools platform, which provides additional detail on how the model is structured and how markets are developed over time.</p>
                 <p style="margin:0;font-size:16px;line-height:1.68;color:#334155;">We will be in touch shortly with next steps.</p>
               </td>
             </tr>
