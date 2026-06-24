@@ -1,7 +1,11 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+
 import { Resend } from "resend";
 import type { CreateEmailOptions } from "resend";
 
 import type {
+  WaitlistEmailAttachment,
   WaitlistEmailClient,
   WaitlistEmailEnvironment,
   WaitlistEmailEnvironmentResult,
@@ -13,7 +17,13 @@ const franchise_deck_page_path = "/franchise-platform-overview-8q4m2x9v";
 
 const default_site_base_url = "https://betzpoolsfranchise.com";
 
-const canonical_franchise_deck_url = `${default_site_base_url}${franchise_deck_page_path}`;
+const franchise_deck_file_path = join(
+  process.cwd(),
+  "assets",
+  "Betz Pools Franchise Deck - draft 20260512.pdf"
+);
+
+const franchise_deck_attachment_name = "Betz Pools Franchise Platform Overview.pdf";
 
 const autoResponseSubject =
   "Thank you for your interest in owning a Betz Pools Designated Service Area.";
@@ -98,6 +108,7 @@ export function createResendWaitlistEmailClient(resendApiKey: string): WaitlistE
         html: emailOptions.html,
         replyTo: emailOptions.replyTo,
         bcc: emailOptions.bcc,
+        attachments: emailOptions.attachments,
       };
 
       const response = await resend.emails.send(payload);
@@ -118,6 +129,18 @@ export function parseBccEmails(emailList: string): string[] {
     .split(",")
     .map((emailAddress) => emailAddress.trim())
     .filter(Boolean);
+}
+
+/**
+ * Purpose: Loads the franchise platform PDF as an applicant email attachment.
+ * Parameters: None.
+ */
+export function createFranchiseDeckAttachment(): WaitlistEmailAttachment {
+  return {
+    content: readFileSync(franchise_deck_file_path),
+    filename: franchise_deck_attachment_name,
+    contentType: "application/pdf",
+  };
 }
 
 /**
@@ -191,9 +214,9 @@ export function createAdminEmailOptions(
 
 /**
  * Purpose: Builds the plain-text autoresponse body sent to the applicant.
- * Parameters: deckUrl - absolute URL for the platform overview call to action.
+ * Parameters: None.
  */
-function createAutoResponseText(deckUrl: string): string {
+function createAutoResponseText(): string {
   return `Thank you for your interest in owning a Betz Pools Designated Service Area.
 
 We’ve received your application and have included you in our initial review group.
@@ -206,19 +229,14 @@ We are reviewing all applications carefully and in sequence as we move toward ou
 
 Attached is an overview of the Betz Pools platform, which provides additional detail on how the model is structured and how markets are developed over time.
 
-View the platform overview:
-${deckUrl}
-
 We will be in touch shortly with next steps.`;
 }
 
 /**
  * Purpose: Builds a branded HTML autoresponse email for franchise applicants.
- * Parameters: deckUrl - absolute URL for the platform overview call to action.
+ * Parameters: None.
  */
-function createAutoResponseHtml(deckUrl: string): string {
-  const safeDeckUrl = escapeHtml(deckUrl);
-
+function createAutoResponseHtml(): string {
   return `<!doctype html>
 <html lang="en">
   <body style="margin:0;background:#f7f8f8;padding:0;font-family:Arial,Helvetica,sans-serif;color:#1e293b;">
@@ -240,16 +258,7 @@ function createAutoResponseHtml(deckUrl: string): string {
                 <p style="margin:0 0 18px;font-size:16px;line-height:1.68;color:#334155;">We are currently preparing for the launch of our first franchise areas this September &mdash; a meaningful step in expanding the Betz platform across new markets. This is not a broad rollout. Our focus is on building a small group of strong operators who can establish and lead their Designated Service Area with the level of service and professionalism the Betz brand has been known for since 1945.</p>
                 <p style="margin:0 0 18px;font-size:16px;line-height:1.68;color:#334155;">The opportunity is structured around a fully integrated model &mdash; combining retail, weekly service, and supply &mdash; designed to create long-term, recurring revenue within each area. As markets develop, the goal is to build density, strengthen customer relationships, and create a scalable local business supported by centralized systems.</p>
                 <p style="margin:0 0 18px;font-size:16px;line-height:1.68;color:#334155;">We are reviewing all applications carefully and in sequence as we move toward our first allocations.</p>
-                <p style="margin:0 0 26px;font-size:16px;line-height:1.68;color:#334155;">Attached is an overview of the Betz Pools platform, which provides additional detail on how the model is structured and how markets are developed over time.</p>
-                <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin:0 0 28px;background:#f7f8f8;border:1px solid #dce6ea;border-radius:12px;">
-                  <tr>
-                    <td style="padding:24px 24px 26px;border-left:4px solid #0096d6;">
-                      <p style="margin:0 0 10px;color:#0096d6;font-size:12px;line-height:1.4;font-weight:700;letter-spacing:2px;text-transform:uppercase;">Platform Overview</p>
-                      <p style="margin:0 0 18px;font-size:16px;line-height:1.62;color:#243342;">Review the applicant-only platform overview for the Designated Service Area model, operating structure, and market development approach.</p>
-                      <a href="${safeDeckUrl}" style="display:inline-block;background:#0096d6;color:#ffffff !important;text-decoration:none;font-size:13px;line-height:1.2;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;padding:14px 18px;border-radius:8px;">View Platform Overview</a>
-                    </td>
-                  </tr>
-                </table>
+                <p style="margin:0 0 18px;font-size:16px;line-height:1.68;color:#334155;">Attached is an overview of the Betz Pools platform, which provides additional detail on how the model is structured and how markets are developed over time.</p>
                 <p style="margin:0;font-size:16px;line-height:1.68;color:#334155;">We will be in touch shortly with next steps.</p>
               </td>
             </tr>
@@ -270,13 +279,14 @@ export function createAutoResponseEmailOptions(
   environment: WaitlistEmailEnvironment
 ): WaitlistEmailOptions {
   const bcc = parseBccEmails(environment.autoResponseBccEmails);
-  const text = createAutoResponseText(canonical_franchise_deck_url);
+  const text = createAutoResponseText();
   const emailOptions: WaitlistEmailOptions = {
     from: environment.resendFromEmail,
     to: payload.email,
     subject: autoResponseSubject,
     text,
-    html: createAutoResponseHtml(canonical_franchise_deck_url),
+    html: createAutoResponseHtml(),
+    attachments: [createFranchiseDeckAttachment()],
   };
 
   if (bcc.length > 0) {

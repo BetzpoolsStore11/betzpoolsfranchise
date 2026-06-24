@@ -44,6 +44,12 @@ export type WaitlistEmailEnvironmentResult =
       errorMessage: string;
     };
 
+export type WaitlistEmailAttachment = {
+  content: Buffer;
+  filename: string;
+  contentType: string;
+};
+
 export type WaitlistEmailOptions = {
   from: string;
   to: string | string[];
@@ -52,6 +58,7 @@ export type WaitlistEmailOptions = {
   html: string;
   replyTo?: string;
   bcc?: string[];
+  attachments?: WaitlistEmailAttachment[];
 };
 
 export type WaitlistEmailClient = {
