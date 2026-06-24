@@ -9,6 +9,7 @@ import type {
 import {
   createAdminEmailOptions,
   createAutoResponseEmailOptions,
+  createFranchiseDeckAttachment,
   createFranchiseDeckUrl,
   getWaitlistEmailEnvironment,
   sendWaitlistEmails,
@@ -86,14 +87,21 @@ describe("waitlist submission helpers", () => {
     expect(emailOptions.text).toContain(
       "Attached is an overview of the Betz Pools platform, which provides additional detail on how the model is structured and how markets are developed over time."
     );
-    expect(emailOptions.text).toContain(
-      "https://betzpoolsfranchise.com/franchise-platform-overview-8q4m2x9v"
-    );
-    expect(emailOptions.html).toContain(
-      'href="https://betzpoolsfranchise.com/franchise-platform-overview-8q4m2x9v"'
-    );
-    expect(emailOptions.html).toContain("View Platform Overview");
+    expect(emailOptions.text).not.toContain("https://");
+    expect(emailOptions.html).not.toContain("<a ");
+    expect(emailOptions.attachments).toHaveLength(1);
+    expect(emailOptions.attachments?.[0]).toMatchObject({
+      filename: "Betz Pools Franchise Platform Overview.pdf",
+      contentType: "application/pdf",
+    });
     expect(emailOptions.text).not.toContain("Betz Pools Franchise Team");
+  });
+
+  it("creates a happy-path franchise deck PDF attachment", () => {
+    const attachment = createFranchiseDeckAttachment();
+
+    expect(attachment.content.subarray(0, 4).toString()).toBe("%PDF");
+    expect(attachment.content.length).toBeGreaterThan(0);
   });
 
   it("creates a happy-path franchise deck URL", () => {
